@@ -1,51 +1,29 @@
-# Satyam Sakral Portfolio — Project Requirements
-# =============================================
-# This is a Node.js / TypeScript / React application (not Python).
-# Install dependencies with:  npm install
-# Run locally with:           npm run dev
-# Build for production:       npm run build && npm start
-#
-# Prerequisites:
-#   - Node.js 18 or higher
-#   - npm (or bun)
-#
-# Environment variables (set in .env):
-#   - GEMINI_API_KEY          (required for AI Twin chat)
-#   - NODE_ENV                (optional: "production" for prod build)
-#   - DISABLE_HMR             (optional: "true" to disable hot reload)
-#
-# Google Cloud credentials for Gmail contact form (Application Default Credentials)
+# Satyam Sakral AI Projects & System Requirements
+# Primary Python & AI/ML Dependencies
 
-# --- Production dependencies ---
-@google/genai==2.11.0
-@langchain/core==1.2.3
-@langchain/google-genai==2.2.0
-@react-three/drei==10.7.7
-@react-three/fiber==9.6.1
-@tailwindcss/vite==4.1.14
-@vitejs/plugin-react==5.0.4
-clsx==2.1.1
-dotenv==17.2.3
-express==4.21.2
-framer-motion==12.42.2
-googleapis==173.0.0
-gsap==3.15.0
-langchain==1.5.4
-lucide-react==0.546.0
-motion==12.23.24
-react==19.0.1
-react-dom==19.0.1
-react-markdown==10.1.0
-tailwind-merge==3.6.0
-three==0.185.1
-vite==6.2.3
+# Generative AI & RAG Ecosystem
+google-generativeai>=0.8.0
+langchain>=0.3.0
+langchain-community>=0.3.0
+langchain-google-genai>=2.0.0
+chromadb>=0.5.0
+pypdf>=4.0.0
+youtube-transcript-api>=0.6.0
+tiktoken>=0.7.0
 
-# --- Development dependencies ---
-@types/express==4.17.21
-@types/node==22.14.0
-@types/three==0.185.1
-autoprefixer==10.4.21
-esbuild==0.25.0
-tailwindcss==4.1.14
-tsx==4.21.0
-typescript==5.8.2
+# Computer Vision & Deep Learning
+torch>=2.2.0
+torchvision>=0.17.0
+opencv-python>=4.9.0
+numpy>=1.26.0
+scikit-learn>=1.4.0
+pillow>=10.2.0
+
+# Web Frameworks & Real-Time Systems
+fastapi>=0.110.0
+uvicorn>=0.28.0
+Django>=5.0.0
+python-socketio>=5.11.0
+requests>=2.31.0
+pydantic>=2.6.0
+python-dotenv>=1.0.0
