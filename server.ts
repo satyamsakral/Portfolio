@@ -54,7 +54,7 @@ WORK EXPERIENCE:
 
 PROJECTS:
 1. Study AI – Adaptive Learning & Neural RAG Platform
-   - Zero-Trust BYOK Architecture: Built an AI Gateway supporting OpenAI, Anthropic, Gemini, Groq, and OpenRouter using Fernet AES-GCM encryption for secure client API key storage.
+   - Multi-Provider AI Gateway: Built an AI Gateway supporting OpenAI, Anthropic, Gemini, Groq, and OpenRouter using AES-GCM encryption for secure client API key storage.
    - Multi-Source Neural RAG Pipeline: Implemented multi-format document parsing (PDF, DOCX, PPTX, YouTube Transcripts) with vector semantic search for context-aware document Q&A.
    - Adaptive Planner & Dynamic Assessments: Developed study plan scheduling algorithms based on topic difficulty and learning speed, paired with automated exam feedback generation.
    - GitHub Repo: https://github.com/satyamsakral/Study_Ai_2
