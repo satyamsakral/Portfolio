@@ -1,0 +1,6 @@
+{
+  "name": "Satyam Sakral Portfolio",
+  "description": "Deep Ocean × AI Research Facility - Satyam Sakral's Portfolio",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
