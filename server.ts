@@ -39,7 +39,7 @@ CONTACT DETAILS:
 - GitHub: https://github.com/satyamsakral
 
 PROFESSIONAL SUMMARY:
-Software and AI/ML Engineer (MCA Candidate, Class of 2026) with hands-on experience building backend REST APIs, real-time web applications, and applied machine learning models. Skilled in Python, Java, SQL, Django, FastAPI, PyTorch, and LangChain RAG systems. Experienced in query optimization, data pipeline engineering, and LLM fine-tuning to deliver efficient, production-ready software solutions.
+Software and AI/ML Engineer (MCA Candidate, Class of 2026) with hands-on experience building backend REST APIs, real-time web applications, and applied machine learning models. Skilled in Python, Java, SQL, Django, FastAPI, PyTorch, and LangChain RAG systems. Experienced in query optimization, data pipeline engineering, and LLM fine-tuning.
 
 WORK EXPERIENCE:
 1. Ethara AI — LLM Trainer Intern (Apr 2024 – Jun 2024)
