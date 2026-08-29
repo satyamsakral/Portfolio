@@ -34,56 +34,59 @@ CONTACT DETAILS:
 - Location: Delhi, India
 - Phone: +91 9958503242
 - Email: satyamsakral@gmail.com
+- Portfolio: https://portfolio-z2js.vercel.app/?_vercel_share=se4I7BcMLAysK2hxsw1ucYCb5cutZ9Sq
 - LinkedIn: https://linkedin.com/in/satyam-sakral-5553a4240/
 - GitHub: https://github.com/satyamsakral
 
+PROFESSIONAL SUMMARY:
+Accomplished Software & AI/ML Engineer with expertise in backend system architecture, computer vision engineering, and LLM post-training pipelines. Proven track record of designing scalable Django and FastAPI web services, re-engineering SQL database queries for low-latency performance, and building real-time WebRTC streaming applications. Adept at training PyTorch convolutional neural networks, engineering multi-modal dataset pipelines, and conducting RLHF alignment for production language models.
+
 WORK EXPERIENCE:
 1. Ethara AI — LLM Trainer Intern (Apr 2026 – Jun 2026)
-   - Model Optimization: Spearheaded the training and post-training optimization phases for large-scale language models, enhancing contextual understanding and generation accuracy.
-   - Dataset Engineering: Curated, filtered, and structured high-quality datasets for model training, helping reduce bias, improve consistency, and mitigate hallucinations.
-   - Flux AI Integration: Collaborated on core training pipelines for the Flux AI framework, applying rigorous evaluation and reinforcement strategies to ensure robust output quality.
+   - LLM Post-Training & Optimization: Spearheaded fine-tuning, RLHF alignment, and evaluation phases for large language models, significantly elevating contextual coherence and task execution accuracy.
+   - Dataset Engineering & Quality Control: Engineered data pipelines to curate, filter, and deduplicate multi-modal datasets, reducing model hallucination rates and eliminating training biases.
+   - Flux AI Core Integration: Collaborated with senior research engineers to construct evaluation benchmarks and reinforcement feedback loops for core Flux AI framework pipelines.
 
 2. Doosra College — Django Developer Intern (Jul 2023 – Sep 2023)
-   - System Development: Developed a comprehensive Inventory Management System using a Django backend and SQL database to streamline stock tracking and logistics.
-   - Database Optimization: Engineered optimized SQL queries and indexing strategies, resulting in a 60% improvement in data retrieval latency for high-traffic modules.
-   - Analytics Integration: Collaborated with cross-functional teams to integrate analytics dashboards into the system for better operational decision-making.
+   - Full-Stack Inventory Backend: Architected and deployed a centralized Inventory Management System using Django REST framework and SQL to streamline logistics tracking across departmental modules.
+   - Database Optimization: Re-engineered complex SQL queries and indexing strategies, achieving a 60% reduction in data retrieval latency for high-throughput database operations.
+   - Analytics Dashboard Integration: Collaborated with cross-functional teams to integrate interactive data visualization dashboards into the operational pipeline.
 
 PROJECTS:
-1. Study AI (Gen-AI & Deep RAG Engine)
-   - Personalized Planner Engine: Developed an intelligent study platform utilizing the Gemini API that processes user-uploaded notes to generate custom study plans tailored to specific topics, learning speeds, and time constraints.
-   - Multi-Source Content Processing: Integrated LangChain and the YouTube Transcript API to extract key concepts from book PDFs and videos, automatically summarizing lecture data into structured personal notes.
-   - Contextual Knowledge Retrieval: Implemented Semantic Search across processed documents and videos, allowing users to interactively chat with their custom learning materials for high-accuracy, real-time contextual insights.
+1. Study AI – Adaptive Learning & Neural RAG Platform
+   - Zero-Trust BYOK Architecture: Built a multi-provider AI Gateway supporting OpenAI, Anthropic, Gemini, Groq, and OpenRouter with AES-GCM (Fernet) encryption for client API key storage.
+   - Multi-Source Neural RAG Pipeline: Implemented multi-format document parsing (PDF, DOCX, PPTX, YouTube Transcripts) coupled with vector semantic search for context-aware document Q&A.
+   - Adaptive Planner & Dynamic Assessments: Designed automated study plan scheduling algorithms based on topic difficulty and learning speed, paired with real-time exam feedback generation.
    - GitHub Repo: https://github.com/satyamsakral/Study_Ai_2
-   - Tech Stack: Python, LangChain, Gemini API, YouTube Transcript API, Semantic Search, NLP, HTML, CSS, JavaScript, GitHub.
-   - Metrics: Query Latency <450ms, Embedding Dim 768-dim, Retrieval Accuracy 94.2%.
+   - Tech Stack: Python, FastAPI, LangChain, Supabase, Gemini API, ChromaDB.
 
-2. FaceMask Detection (Computer Vision Classifier)
-   - Computer Vision Classifier: Built a CNN-based face mask classifier (~81% accuracy) featuring real-time webcam detection via OpenCV.
-   - Data Pipeline: Utilized PyTorch pipelines, data augmentation, and evaluation metrics such as precision, recall, and F1-score.
-   - Tech Stack: Python, PyTorch, OpenCV, GitHub.
-   - Metrics: Model Accuracy ~81%, Inference Speed 32 FPS, F1-Score 0.82.
+2. FaceMask Detection – Real-Time Computer Vision Classifier
+   - CNN Classifier Architecture: Trained a deep Convolutional Neural Network achieving ~81% accuracy in detecting facial mask compliance via live video feeds.
+   - Data Augmentation & Pipeline: Built automated image pre-processing and data augmentation pipelines to withstand ambient lighting variations and occlusion.
+   - GitHub Repo: https://github.com/satyamsakral/FaceMaskDetector
+   - Tech Stack: Python, PyTorch, OpenCV.
 
-3. VividChat (WebRTC Low-Latency Video Hub)
-   - WebRTC Architecture: Created a real-time video calling app utilizing a Django backend and WebRTC for direct peer-to-peer connections.
-   - Scalable Signaling: Integrated Socket.io signaling to support group calls, text chat, and enhanced room handling for stable, low-latency performance.
-   - Tech Stack: Django, WebRTC, Socket.io, Python, HTML, CSS, JavaScript, GitHub.
-   - Metrics: P2P Latency <50ms, Media Load 0 MB/s, Signaling Overhead <2KB.
+3. VividChat – WebRTC Real-Time Video & Messaging System
+   - Peer-to-Peer Streaming Architecture: Developed a low-latency video streaming web app using Django backend controllers and WebRTC peer connection protocol.
+   - Scalable Signaling Infrastructure: Integrated Socket.io for dynamic room management, group calling capabilities, and real-time text broadcasting.
+   - GitHub Repo: https://github.com/satyamsakral/Vvid-Chat
+   - Tech Stack: Django, WebRTC, Socket.io, Python.
 
 TECHNICAL SKILLS:
-- Languages: Java, Python, C++, SQL
-- Web Frameworks: Django, Spring Boot, FastAPI, React, Node.js
-- AI/ML & LLM: LangChain, PyTorch, OpenCV, Scikit-learn, RAG, Prompt Engineering, LLM Evaluation, Fine-Tuning
-- Databases & Cloud: MySQL, MongoDB, AWS, ChromaDB
-- Tools & Methodologies: Git/GitHub, WebRTC, Socket.io, Semantic Search, REST APIs
+- Languages: Python, Java, C++, SQL
+- AI / ML & LLMs: Retrieval-Augmented Generation (RAG), Fine-Tuning, Prompt Engineering, LangChain, PyTorch, OpenCV, Scikit-learn, LLM Evaluation & Alignment
+- Web & Backend: FastAPI, Django, Spring Boot, RESTful APIs, WebRTC, Socket.io
+- Databases: PostgreSQL, Supabase (RLS), MySQL, MongoDB
+- Tools & Workflows: Git, GitHub, Docker, Postman, Semantic Search, Vector Embeddings
 
 EDUCATION:
 - Guru Gobind Singh Indraprastha University (GGSIPU), Delhi, India
-  - Master of Computer Applications (MCA) – JIMS | CGPA: 8.2 | Jun 2026
-  - Bachelor of Computer Applications (BCA) – SGTBIMIT | CGPA: 7.7 | Jun 2024
+  - Master of Computer Applications (MCA) – JIMS Rohini | CGPA: 8.2 / 10 | Expected: Jun 2026
+  - Bachelor of Computer Applications (BCA) – SGTBIMIT | CGPA: 7.7 / 10 | Graduated: Jun 2024
 
 CERTIFICATIONS:
-- Specialized Program in Artificial Intelligence & Machine Learning with Drone Tech – TiHAN, IIT Hyderabad
-- Java Programming Masterclass – Udemy
+- Specialized Program in AI & ML with Drone Tech – TiHAN, IIT Hyderabad
+- Java Programming Masterclass – Udemy Certification
 `;
 
 function getComprehensiveFallbackReply(message: string): string {
