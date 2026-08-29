@@ -39,10 +39,10 @@ CONTACT DETAILS:
 - GitHub: https://github.com/satyamsakral
 
 PROFESSIONAL SUMMARY:
-Software and AI/ML Engineer (MCA Candidate, Class of 2026) with hands-on experience building backend REST APIs, real-time web applications, and applied machine learning models. Skilled in Python, Java, SQL, Django, FastAPI, PyTorch, and LangChain RAG systems. Experienced in query optimization, data pipeline engineering, and LLM fine-tuning.
+Software and AI/ML Engineer (MCA Graduate) with hands-on experience building backend REST APIs, real-time web applications, and applied machine learning models. Skilled in Python, Java, SQL, Django, FastAPI, PyTorch, and LangChain RAG systems. Experienced in query optimization, data pipeline engineering, and LLM fine-tuning.
 
 WORK EXPERIENCE:
-1. Ethara AI — LLM Trainer Intern (Apr 2024 – Jun 2024)
+1. Ethara AI — LLM Trainer Intern (Apr 2026 – Jun 2026)
    - LLM Post-Training & Optimization: Assisted in fine-tuning, RLHF alignment, and evaluation workflows for large language models to improve response accuracy and task coherence.
    - Dataset Engineering & Quality Control: Built data processing pipelines to clean, filter, and deduplicate multi-modal datasets, reducing dataset noise and model hallucination rates.
    - Flux AI Framework Integration: Contributed to evaluation benchmarks and feedback loops within core Flux AI framework pipelines.
@@ -81,7 +81,7 @@ TECHNICAL SKILLS:
 
 EDUCATION:
 - Guru Gobind Singh Indraprastha University (GGSIPU), Delhi, India
-  - Master of Computer Applications (MCA) – JIMS Rohini | CGPA: 8.2 / 10 | Expected: Jun 2026
+  - Master of Computer Applications (MCA) – JIMS Rohini | CGPA: 8.2 / 10 | Graduated: Jun 2026
   - Bachelor of Computer Applications (BCA) – SGTBIMIT | CGPA: 7.7 / 10 | Graduated: Jun 2024
 
 CERTIFICATIONS:
