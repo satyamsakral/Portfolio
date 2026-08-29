@@ -128,7 +128,7 @@ export default function AITwin() {
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[420px] max-h-[580px] flex flex-col glass-panel rounded-3xl border border-cyan-500/40 shadow-[0_0_50px_rgba(0,0,0,0.8)] overflow-hidden"
+            className="fixed bottom-20 sm:bottom-24 right-2.5 sm:right-6 left-2.5 sm:left-auto z-50 w-auto sm:w-[420px] max-h-[82vh] sm:max-h-[580px] flex flex-col glass-panel rounded-3xl border border-cyan-500/40 shadow-[0_0_50px_rgba(0,0,0,0.9)] overflow-hidden"
           >
             {/* Modal Header */}
             <div className="p-4 bg-cyber-950/90 border-b border-white/10 flex items-center justify-between">

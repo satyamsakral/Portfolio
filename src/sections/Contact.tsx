@@ -258,13 +258,13 @@ export default function Contact() {
       </div>
 
       {/* Footer copyright & credits */}
-      <footer className="mt-20 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 font-mono gap-4">
+      <footer className="mt-16 sm:mt-20 pt-6 sm:pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 font-mono gap-3 text-center sm:text-left">
         <div>
           © {new Date().getFullYear()} Satyam Sakral • Built with React 19, Three.js & Tailwind CSS
         </div>
         <div className="flex items-center gap-2 text-cyan-400">
-          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-          <span>CYBERNETIC AI FRONTEND</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="text-[10px] tracking-wider uppercase text-slate-400">Satyam Sakral Portfolio</span>
         </div>
       </footer>
     </section>

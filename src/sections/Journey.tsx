@@ -80,14 +80,14 @@ export default function Journey() {
       : skillsData.filter((s) => s.cat === activeSkillCategory);
 
   return (
-    <section id="journey" className="py-24 px-4 md:px-12 relative z-10 max-w-7xl mx-auto w-full">
+    <section id="journey" className="py-16 sm:py-24 px-4 sm:px-6 md:px-12 relative z-10 max-w-7xl mx-auto w-full">
       {/* Header */}
-      <div className="mb-16">
+      <div className="mb-10 sm:mb-16">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/40 font-mono text-[10px] text-cyan-400 uppercase tracking-widest mb-3">
           <Sparkles size={12} />
           <span>CHRONOLOGICAL TRACK RECORD</span>
         </div>
-        <h2 className="font-display font-extrabold text-4xl md:text-5xl text-white tracking-tight uppercase">
+        <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-white tracking-tight uppercase">
           CAREER & <span className="gradient-text-cyan">EDUCATION</span>
         </h2>
       </div>

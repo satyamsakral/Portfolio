@@ -33,29 +33,29 @@ export default function Hero() {
 
           {/* Main Title */}
           <div className="space-y-2">
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-display font-extrabold tracking-tight text-white leading-none">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-extrabold tracking-tight text-white leading-tight sm:leading-none">
               Satyam <span className="gradient-text-cyan">Sakral</span>
             </h1>
-            <p className="text-xl sm:text-2xl font-mono text-cyan-400/90 font-medium tracking-tight pt-1 flex items-center gap-2">
-              <Cpu size={24} className="text-cyan-400 animate-spin-slow" />
-              AI Engineer & Full-Stack Developer
+            <p className="text-lg sm:text-2xl font-mono text-cyan-400/90 font-medium tracking-tight pt-1 flex items-center gap-2">
+              <Cpu size={22} className="text-cyan-400 animate-spin-slow shrink-0" />
+              <span>AI Engineer & Full-Stack Developer</span>
             </p>
           </div>
 
           {/* Bio Description */}
-          <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl font-light">
+          <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl font-light">
             Architecting intelligent applications powered by <span className="text-cyan-300 font-normal">Generative AI</span>, <span className="text-purple-300 font-normal">Retrieval-Augmented Generation (RAG)</span>, and scalable modern web stacks. Transforming complex neural research into seamless interactive experiences.
           </p>
 
           {/* Action CTAs */}
-          <div className="flex flex-wrap gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row gap-3.5 pt-2 sm:pt-4">
             <motion.a
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
               onMouseEnter={() => soundFx.playHover()}
               onClick={() => soundFx.playClick()}
               href="#projects"
-              className="px-7 py-3.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold text-xs uppercase tracking-widest flex items-center gap-2 shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:shadow-[0_0_35px_rgba(6,182,212,0.6)] transition-all"
+              className="px-6 py-3.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:shadow-[0_0_35px_rgba(6,182,212,0.6)] transition-all"
             >
               Explore Projects <ArrowRight size={16} />
             </motion.a>
@@ -67,7 +67,7 @@ export default function Hero() {
               onClick={() => soundFx.playClick()}
               href="/satyam_sakral_resume.pdf"
               download="Satyam_Sakral_Resume.pdf"
-              className="px-7 py-3.5 rounded-full bg-cyber-900/90 border border-slate-700/80 hover:border-cyan-400/60 text-slate-200 hover:text-white font-mono text-xs uppercase tracking-widest flex items-center gap-2 backdrop-blur-md transition-all shadow-[0_0_15px_rgba(0,0,0,0.5)]"
+              className="px-6 py-3.5 rounded-full bg-cyber-900/90 border border-slate-700/80 hover:border-cyan-400/60 text-slate-200 hover:text-white font-mono text-xs uppercase tracking-widest flex items-center justify-center gap-2 backdrop-blur-md transition-all shadow-[0_0_15px_rgba(0,0,0,0.5)]"
             >
               Resume <Download size={15} />
             </motion.a>
