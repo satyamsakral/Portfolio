@@ -39,30 +39,30 @@ CONTACT DETAILS:
 - GitHub: https://github.com/satyamsakral
 
 PROFESSIONAL SUMMARY:
-Accomplished Software & AI/ML Engineer with expertise in backend system architecture, computer vision engineering, and LLM post-training pipelines. Proven track record of designing scalable Django and FastAPI web services, re-engineering SQL database queries for low-latency performance, and building real-time WebRTC streaming applications. Adept at training PyTorch convolutional neural networks, engineering multi-modal dataset pipelines, and conducting RLHF alignment for production language models.
+Software and AI/ML Engineer (MCA Candidate, Class of 2026) with hands-on experience building backend REST APIs, real-time web applications, and applied machine learning models. Skilled in Python, Java, SQL, Django, FastAPI, PyTorch, and LangChain RAG systems. Experienced in query optimization, data pipeline engineering, and LLM fine-tuning to deliver efficient, production-ready software solutions.
 
 WORK EXPERIENCE:
-1. Ethara AI — LLM Trainer Intern (Apr 2026 – Jun 2026)
-   - LLM Post-Training & Optimization: Spearheaded fine-tuning, RLHF alignment, and evaluation phases for large language models, significantly elevating contextual coherence and task execution accuracy.
-   - Dataset Engineering & Quality Control: Engineered data pipelines to curate, filter, and deduplicate multi-modal datasets, reducing model hallucination rates and eliminating training biases.
-   - Flux AI Core Integration: Collaborated with senior research engineers to construct evaluation benchmarks and reinforcement feedback loops for core Flux AI framework pipelines.
+1. Ethara AI — LLM Trainer Intern (Apr 2024 – Jun 2024)
+   - LLM Post-Training & Optimization: Assisted in fine-tuning, RLHF alignment, and evaluation workflows for large language models to improve response accuracy and task coherence.
+   - Dataset Engineering & Quality Control: Built data processing pipelines to clean, filter, and deduplicate multi-modal datasets, reducing dataset noise and model hallucination rates.
+   - Flux AI Framework Integration: Contributed to evaluation benchmarks and feedback loops within core Flux AI framework pipelines.
 
 2. Doosra College — Django Developer Intern (Jul 2023 – Sep 2023)
-   - Full-Stack Inventory Backend: Architected and deployed a centralized Inventory Management System using Django REST framework and SQL to streamline logistics tracking across departmental modules.
-   - Database Optimization: Re-engineered complex SQL queries and indexing strategies, achieving a 60% reduction in data retrieval latency for high-throughput database operations.
-   - Analytics Dashboard Integration: Collaborated with cross-functional teams to integrate interactive data visualization dashboards into the operational pipeline.
+   - Full-Stack Inventory Backend: Developed a centralized Inventory Management System using Django REST framework and SQL to streamline logistics tracking across departmental modules.
+   - Database Optimization: Re-engineered complex SQL queries and database indexing, achieving a 60% reduction in data retrieval latency for high-throughput operations.
+   - Analytics Dashboard Integration: Worked with cross-functional teams to integrate interactive data visualization dashboards into the operational pipeline.
 
 PROJECTS:
 1. Study AI – Adaptive Learning & Neural RAG Platform
-   - Zero-Trust BYOK Architecture: Built a multi-provider AI Gateway supporting OpenAI, Anthropic, Gemini, Groq, and OpenRouter with AES-GCM (Fernet) encryption for client API key storage.
-   - Multi-Source Neural RAG Pipeline: Implemented multi-format document parsing (PDF, DOCX, PPTX, YouTube Transcripts) coupled with vector semantic search for context-aware document Q&A.
-   - Adaptive Planner & Dynamic Assessments: Designed automated study plan scheduling algorithms based on topic difficulty and learning speed, paired with real-time exam feedback generation.
+   - Zero-Trust BYOK Architecture: Built an AI Gateway supporting OpenAI, Anthropic, Gemini, Groq, and OpenRouter using Fernet AES-GCM encryption for secure client API key storage.
+   - Multi-Source Neural RAG Pipeline: Implemented multi-format document parsing (PDF, DOCX, PPTX, YouTube Transcripts) with vector semantic search for context-aware document Q&A.
+   - Adaptive Planner & Dynamic Assessments: Developed study plan scheduling algorithms based on topic difficulty and learning speed, paired with automated exam feedback generation.
    - GitHub Repo: https://github.com/satyamsakral/Study_Ai_2
    - Tech Stack: Python, FastAPI, LangChain, Supabase, Gemini API, ChromaDB.
 
 2. FaceMask Detection – Real-Time Computer Vision Classifier
-   - CNN Classifier Architecture: Trained a deep Convolutional Neural Network achieving ~81% accuracy in detecting facial mask compliance via live video feeds.
-   - Data Augmentation & Pipeline: Built automated image pre-processing and data augmentation pipelines to withstand ambient lighting variations and occlusion.
+   - CNN Architecture & Inference Pipeline: Built and trained a Convolutional Neural Network (CNN) for real-time facial mask classification on live video feeds (~81% accuracy).
+   - Data Processing & Augmentation: Engineered image pre-processing and data augmentation pipelines (scaling, rotation, lighting adjustments) to maintain inference stability under varied environment conditions.
    - GitHub Repo: https://github.com/satyamsakral/FaceMaskDetector
    - Tech Stack: Python, PyTorch, OpenCV.
 
@@ -74,7 +74,7 @@ PROJECTS:
 
 TECHNICAL SKILLS:
 - Languages: Python, Java, C++, SQL
-- AI / ML & LLMs: Retrieval-Augmented Generation (RAG), Fine-Tuning, Prompt Engineering, LangChain, PyTorch, OpenCV, Scikit-learn, LLM Evaluation & Alignment
+- AI / ML & LLMs: Retrieval-Augmented Generation (RAG), Fine-Tuning, Prompt Engineering, LangChain, PyTorch, OpenCV, Scikit-learn, Model Evaluation
 - Web & Backend: FastAPI, Django, Spring Boot, RESTful APIs, WebRTC, Socket.io
 - Databases: PostgreSQL, Supabase (RLS), MySQL, MongoDB
 - Tools & Workflows: Git, GitHub, Docker, Postman, Semantic Search, Vector Embeddings
