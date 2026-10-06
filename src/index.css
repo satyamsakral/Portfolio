@@ -1,77 +1,93 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Syne:wght@700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Space Grotesk", ui-sans-serif, system-ui;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-heading: "Syne", "Space Grotesk", sans-serif;
   
-  --color-cyber-950: #030712;
-  --color-cyber-900: #0b0f19;
-  --color-cyber-800: #111827;
-  --color-cyber-700: #1f2937;
+  --color-abyss-950: #01040a;
+  --color-abyss-900: #020817;
+  --color-abyss-850: #040e24;
+  --color-abyss-800: #071533;
+  --color-abyss-700: #0c214c;
   
   --color-cyan-400: #2dd4bf;
   --color-cyan-500: #14b8a6;
   --color-neon-cyan: #06b6d4;
   --color-neon-purple: #a855f7;
-  --color-neon-blue: #3b82f6;
+  --color-neon-blue: #38bdf8;
   --color-neon-emerald: #10b981;
 }
 
 html {
   scroll-behavior: smooth;
+  background-color: #01040a;
 }
 
 body {
-  @apply text-slate-300 font-sans antialiased bg-[#030712] selection:bg-cyan-500/30 selection:text-cyan-200;
+  @apply text-slate-200 font-sans antialiased bg-[#01040a] selection:bg-cyan-500/30 selection:text-cyan-100;
   overflow-x: hidden;
 }
 
-/* Glassmorphism Panel */
+/* Deep Ocean Lab Glassmorphism */
+.abyss-panel {
+  background: rgba(3, 10, 26, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(56, 189, 248, 0.12);
+  box-shadow: 0 12px 40px 0 rgba(0, 3, 15, 0.65), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+
+.abyss-panel-glow {
+  background: rgba(4, 14, 36, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  box-shadow: 0 0 35px -5px rgba(6, 182, 212, 0.15), 0 20px 50px -10px rgba(0, 2, 10, 0.8), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+.abyss-panel-interactive {
+  background: rgba(4, 14, 34, 0.68);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(56, 189, 248, 0.14);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.abyss-panel-interactive:hover {
+  border-color: rgba(34, 211, 238, 0.45);
+  background: rgba(5, 18, 44, 0.82);
+  box-shadow: 0 0 30px rgba(6, 182, 212, 0.2), 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+  transform: translateY(-3px);
+}
+
+/* Glass Panel Compatibility */
 .glass-panel {
-  background: rgba(11, 15, 25, 0.65);
+  background: rgba(4, 12, 30, 0.7);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 35px 0 rgba(0, 0, 0, 0.5);
 }
 
-.glass-panel-interactive {
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(45, 212, 191, 0.15);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* Subsea Bioluminescent Glows */
+.ocean-glow-cyan {
+  box-shadow: 0 0 30px rgba(6, 182, 212, 0.3), inset 0 0 15px rgba(6, 182, 212, 0.1);
 }
 
-.glass-panel-interactive:hover {
-  border-color: rgba(45, 212, 191, 0.4);
-  box-shadow: 0 0 25px rgba(6, 182, 212, 0.15), 0 10px 30px -10px rgba(0,0,0,0.5);
-  transform: translateY(-2px);
+.ocean-glow-blue {
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.3), inset 0 0 15px rgba(56, 189, 248, 0.1);
 }
 
-/* Cyber Glows */
-.neon-border-cyan {
-  border: 1px solid rgba(6, 182, 212, 0.4);
-  box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+.ocean-glow-purple {
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.25), inset 0 0 15px rgba(168, 85, 247, 0.1);
 }
 
-.neon-border-purple {
-  border: 1px solid rgba(168, 85, 247, 0.4);
-  box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
-}
-
-.neon-glow-cyan {
-  box-shadow: 0 0 25px rgba(6, 182, 212, 0.25);
-}
-
-.neon-glow-purple {
-  box-shadow: 0 0 25px rgba(168, 85, 247, 0.25);
-}
-
+/* Gradient Texts */
 .gradient-text-cyan {
-  background: linear-gradient(135deg, #38bdf8 0%, #2dd4bf 50%, #a855f7 100%);
+  background: linear-gradient(135deg, #38bdf8 0%, #22d3ee 40%, #14b8a6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -82,36 +98,61 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-/* Cyber Scanline Grid */
+.gradient-text-ocean {
+  background: linear-gradient(135deg, #ffffff 0%, #a5f3fc 35%, #38bdf8 70%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subsea Grid and Caustics */
 .bg-grid-pattern {
-  background-size: 40px 40px;
+  background-size: 44px 44px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
 }
 
 .bg-dots-pattern {
-  background-image: radial-gradient(rgba(45, 212, 191, 0.15) 1px, transparent 1px);
-  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(34, 211, 238, 0.18) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
-/* Animations */
+/* Underwater Sonar Ripple Effect */
+@keyframes sonar-ring {
+  0% { transform: scale(0.85); opacity: 0.8; }
+  50% { opacity: 0.4; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.animate-sonar {
+  animation: sonar-ring 3s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
 @keyframes pulse-slow {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.05); }
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.75; transform: scale(1.04); }
 }
 
 .animate-pulse-slow {
-  animation: pulse-slow 6s ease-in-out infinite;
+  animation: pulse-slow 7s ease-in-out infinite;
 }
 
-@keyframes scanline {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(1000%); }
+@keyframes float-subtle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
 }
 
-.animate-scanline {
-  animation: scanline 8s linear infinite;
+.animate-float {
+  animation: float-subtle 5s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
 }
 
 /* Custom Scrollbar */
@@ -119,12 +160,12 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #030712;
+  background: #01040a;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(45, 212, 191, 0.2);
+  background: rgba(34, 211, 238, 0.25);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(45, 212, 191, 0.4);
+  background: rgba(34, 211, 238, 0.55);
 }

@@ -1,32 +1,26 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Database,
-  FileText,
-  Search,
-  MessageSquare,
   Github,
-  Camera,
-  Layers,
-  Activity,
-  Users,
-  Video,
-  Lock,
-  Zap,
+  Maximize2,
   ExternalLink,
   Sparkles,
-  Maximize2,
-  X,
-  CheckCircle2,
+  Camera,
+  Video,
+  Layers,
   Terminal,
   Cpu,
-  Code
+  CheckCircle2,
+  X,
+  Zap,
+  Activity,
+  ArrowRight
 } from 'lucide-react';
 import { soundFx } from '../utils/audio';
 
 interface Project {
   id: string;
-  category: 'rag' | 'cv' | 'webrtc';
+  category: 'cv' | 'webrtc' | 'rag';
   categoryLabel: string;
   title: string;
   subtitle: string;
@@ -39,36 +33,10 @@ interface Project {
   techStack: string[];
   features: string[];
   accentColor: 'cyan' | 'purple' | 'emerald';
+  schematicType: 'vision' | 'webrtc';
 }
 
 const projectsData: Project[] = [
-  {
-    id: 'study-ai',
-    category: 'rag',
-    categoryLabel: 'GEN-AI & RAG PIPELINE',
-    title: 'Study AI',
-    subtitle: 'Deep RAG & Contextual Synthesis Engine',
-    tagline: 'Autonomous multimodal learning assistant powered by Gemini API & LangChain vector search.',
-    github: 'https://github.com/satyamsakral/Study_Ai_2',
-    problem:
-      'Students struggle to process dense unstructured research papers, PDFs, and hours of video lectures, leading to cognitive overload and fragmented recall.',
-    solution:
-      'Engineered an intelligent retrieval system combining Gemini API, LangChain semantic chunking, and ChromaDB vector embeddings to deliver real-time citation-backed Q&A and dynamic curriculum generation.',
-    challenges:
-      'Optimized token rate limits with sliding-window chunking, preserved PDF table structures, and synchronized YouTube timestamp transcripts with semantic embeddings.',
-    metrics: [
-      { label: 'Query Latency', value: '<450ms' },
-      { label: 'Embedding Dim', value: '768-dim' },
-      { label: 'Retrieval Accuracy', value: '94.2%' },
-    ],
-    techStack: ['Python', 'LangChain', 'Gemini API', 'ChromaDB', 'YouTube Transcript API', 'FastAPI'],
-    features: [
-      'Automated personalized curriculum & study plan generation',
-      'Multi-source ingestion for complex PDFs & YouTube transcripts',
-      'Context-aware conversational interface with verified source citations',
-    ],
-    accentColor: 'cyan',
-  },
   {
     id: 'facemask-detector',
     category: 'cv',
@@ -95,12 +63,13 @@ const projectsData: Project[] = [
       'Comprehensive evaluation across precision, recall, and ROC-AUC',
     ],
     accentColor: 'emerald',
+    schematicType: 'vision',
   },
   {
     id: 'vvid-chat',
     category: 'webrtc',
     categoryLabel: 'REAL-TIME WEBRTC PROTOCOL',
-    title: 'Vvid Chat',
+    title: 'VividChat',
     subtitle: 'Ultra Low-Latency P2P Video Hub',
     tagline: 'Direct peer-to-peer audio/video streaming with Django signaling & WebSocket orchestration.',
     github: 'https://github.com/satyamsakral/Vvid-Chat',
@@ -122,414 +91,302 @@ const projectsData: Project[] = [
       'Synchronized real-time chat with room state persistence',
     ],
     accentColor: 'purple',
+    schematicType: 'webrtc',
   },
 ];
 
-export default function Projects() {
-  const [selectedCategory, setSelectedCategory] = useState<'all' | 'rag' | 'cv' | 'webrtc'>('all');
-  const [activeModalProject, setActiveModalProject] = useState<Project | null>(null);
+// 3D Tilt Project Card Component
+function TiltCard({
+  project,
+  onOpenModal,
+}: {
+  project: Project;
+  onOpenModal: (p: Project) => void;
+}) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [rotateX, setRotateX] = useState(0);
+  const [rotateY, setRotateY] = useState(0);
+  const [glarePos, setGlarePos] = useState({ x: 50, y: 50 });
 
-  const filteredProjects =
-    selectedCategory === 'all'
-      ? projectsData
-      : projectsData.filter((p) => p.category === selectedCategory);
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
 
-  const categories = [
-    { id: 'all', label: 'ALL SYSTEMS', count: '03' },
-    { id: 'rag', label: 'AI & RAG', count: '01' },
-    { id: 'cv', label: 'COMPUTER VISION', count: '01' },
-    { id: 'webrtc', label: 'WEBRTC P2P', count: '01' },
-  ];
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotX = ((y - centerY) / centerY) * -9;
+    const rotY = ((x - centerX) / centerX) * 9;
+
+    setRotateX(rotX);
+    setRotateY(rotY);
+    setGlarePos({ x: (x / rect.width) * 100, y: (y / rect.height) * 100 });
+  };
+
+  const handleMouseLeave = () => {
+    setRotateX(0);
+    setRotateY(0);
+  };
+
+  const isEmerald = project.accentColor === 'emerald';
+  const accentColorClass = isEmerald ? 'text-emerald-400' : 'text-purple-400';
+  const badgeBorder = isEmerald ? 'border-emerald-500/40 text-emerald-300 bg-emerald-950/60' : 'border-purple-500/40 text-purple-300 bg-purple-950/60';
 
   return (
-    <section id="projects" className="py-24 px-4 md:px-12 relative z-10 max-w-7xl mx-auto w-full">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-        <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/40 font-mono text-[10px] text-cyan-400 uppercase tracking-widest mb-3">
-            <Sparkles size={12} />
-            <span>FEATURED AI & FULL-STACK SYSTEMS</span>
+    <div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      data-cursor-text="SPEC"
+      style={{
+        transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
+        transition: 'transform 0.15s ease-out',
+      }}
+      className="abyss-panel-interactive p-6 sm:p-9 rounded-3xl relative overflow-hidden group border border-white/10 hover:border-cyan-400/50 flex flex-col justify-between"
+    >
+      {/* Glare Reflection Layer */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        style={{
+          background: `radial-gradient(circle at ${glarePos.x}% ${glarePos.y}%, rgba(34, 211, 238, 0.12) 0%, transparent 60%)`,
+        }}
+      />
+
+      {/* Top Header Badge */}
+      <div className="flex items-center justify-between gap-4 mb-6 relative z-10">
+        <span className={`px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase border ${badgeBorder}`}>
+          {project.categoryLabel}
+        </span>
+
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => {
+              soundFx.playClick();
+              onOpenModal(project);
+            }}
+            onMouseEnter={() => soundFx.playHover()}
+            className="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition-all cursor-pointer"
+            title="Deep Dive Spec"
+          >
+            <Maximize2 size={15} />
+          </button>
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noreferrer"
+            onMouseEnter={() => soundFx.playHover()}
+            onClick={() => soundFx.playClick()}
+            className="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition-all cursor-pointer"
+            title="Access Repo"
+          >
+            <Github size={15} />
+          </a>
+        </div>
+      </div>
+
+      {/* Title & Tagline */}
+      <div className="mb-6 relative z-10">
+        <h3 className="font-display font-black text-2xl sm:text-3xl text-white uppercase tracking-tight mb-1">
+          {project.title}
+        </h3>
+        <p className={`font-mono text-xs uppercase tracking-wider ${accentColorClass} mb-3 font-semibold`}>
+          {project.subtitle}
+        </p>
+        <p className="text-slate-300 text-xs sm:text-sm font-light leading-relaxed">
+          {project.tagline}
+        </p>
+      </div>
+
+      {/* Architecture Schematics Simulation */}
+      <div className="p-4 rounded-2xl bg-black/40 border border-white/5 mb-6 relative z-10 space-y-2">
+        <div className="flex items-center justify-between text-[10px] font-mono text-slate-400">
+          <span>PIPELINE SCHEMATIC</span>
+          <span className="text-cyan-400 font-bold">VERIFIED</span>
+        </div>
+        {project.schematicType === 'vision' ? (
+          <div className="flex items-center justify-between gap-2 text-center text-[10px] font-mono pt-1">
+            <span className="p-1.5 rounded-lg bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 flex-1">
+              Webcam Feed
+            </span>
+            <span className="text-slate-600">→</span>
+            <span className="p-1.5 rounded-lg bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 flex-1">
+              Haar Cascades
+            </span>
+            <span className="text-slate-600">→</span>
+            <span className="p-1.5 rounded-lg bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 flex-1">
+              PyTorch CNN (32 FPS)
+            </span>
           </div>
-          <h2 className="font-display font-extrabold text-4xl md:text-5xl text-white tracking-tight uppercase">
-            FLAGSHIP <span className="gradient-text-cyan">PROJECTS</span>
+        ) : (
+          <div className="flex items-center justify-between gap-2 text-center text-[10px] font-mono pt-1">
+            <span className="p-1.5 rounded-lg bg-purple-950/60 border border-purple-500/30 text-purple-300 flex-1">
+              Django Signaling
+            </span>
+            <span className="text-slate-600">→</span>
+            <span className="p-1.5 rounded-lg bg-purple-950/60 border border-purple-500/30 text-purple-300 flex-1">
+              Socket.io SDP
+            </span>
+            <span className="text-slate-600">→</span>
+            <span className="p-1.5 rounded-lg bg-purple-950/60 border border-purple-500/30 text-purple-300 flex-1">
+              P2P WebRTC (&lt;50ms)
+            </span>
+          </div>
+        )}
+      </div>
+
+      {/* Telemetry Metrics Grid */}
+      <div className="grid grid-cols-3 gap-2 mb-6 relative z-10 text-center">
+        {project.metrics.map((m, i) => (
+          <div key={i} className="p-2.5 rounded-xl bg-white/5 border border-white/5">
+            <div className={`font-display font-bold text-sm sm:text-base ${accentColorClass}`}>
+              {m.value}
+            </div>
+            <div className="text-[8px] font-mono text-slate-400 uppercase tracking-tight mt-0.5">
+              {m.label}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Tech Stack Chips */}
+      <div className="flex flex-wrap gap-1.5 relative z-10 pt-4 border-t border-white/10">
+        {project.techStack.map((tech) => (
+          <span
+            key={tech}
+            className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 font-mono text-[10px] text-slate-300"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default function Projects() {
+  const [activeModalProject, setActiveModalProject] = useState<Project | null>(null);
+
+  return (
+    <section id="projects" className="py-24 px-4 sm:px-8 md:px-12 relative z-10 max-w-7xl mx-auto w-full">
+      {/* Header */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+        <div>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/40 font-mono text-[10px] text-cyan-300 uppercase tracking-widest mb-3">
+            <Sparkles size={12} />
+            <span>APPLIED MACHINE LEARNING & PROTOCOLS</span>
+          </div>
+          <h2 className="font-display font-black text-4xl sm:text-5xl md:text-6xl text-white tracking-tight uppercase">
+            ENGINEERING <span className="gradient-text-cyan">PORTFOLIO</span>
           </h2>
-        </div>
-
-        {/* Filter Tabs */}
-        <div className="flex flex-wrap gap-2 p-1.5 rounded-2xl bg-cyber-900/90 border border-white/10 backdrop-blur-xl">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => {
-                soundFx.playClick();
-                setSelectedCategory(cat.id as any);
-              }}
-              onMouseEnter={() => soundFx.playHover()}
-              className={`px-4 py-2 rounded-xl text-[10px] font-mono font-bold tracking-widest uppercase transition-all flex items-center gap-2 ${
-                selectedCategory === cat.id
-                  ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 shadow-[0_0_15px_rgba(6,182,212,0.4)]'
-                  : 'text-slate-400 hover:text-white hover:bg-white/5'
-              }`}
-            >
-              <span>{cat.label}</span>
-              <span className="text-[9px] opacity-70">({cat.count})</span>
-            </button>
-          ))}
+          <p className="text-slate-300 font-mono text-xs sm:text-sm mt-2 max-w-2xl leading-relaxed">
+            Production computer vision edge inference and low-latency real-time video streaming systems.
+          </p>
         </div>
       </div>
 
-      {/* Projects Grid */}
-      <div className="space-y-12">
-        {filteredProjects.map((project, idx) => {
-          const isCyan = project.accentColor === 'cyan';
-          const isEmerald = project.accentColor === 'emerald';
-          
-          const borderHoverClass = isCyan
-            ? 'hover:border-cyan-400/60 shadow-[0_0_20px_rgba(6,182,212,0.15)]'
-            : isEmerald
-            ? 'hover:border-emerald-400/60 shadow-[0_0_20px_rgba(16,185,129,0.15)]'
-            : 'hover:border-purple-400/60 shadow-[0_0_20px_rgba(168,85,247,0.15)]';
-            
-          const badgeClass = isCyan
-            ? 'border-cyan-500/40 text-cyan-400 bg-cyan-950/40'
-            : isEmerald
-            ? 'border-emerald-500/40 text-emerald-400 bg-emerald-950/40'
-            : 'border-purple-500/40 text-purple-400 bg-purple-950/40';
-
-          const textAccent = isCyan
-            ? 'text-cyan-400'
-            : isEmerald
-            ? 'text-emerald-400'
-            : 'text-purple-400';
-
-          return (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className={`glass-panel p-6 sm:p-8 md:p-10 rounded-3xl relative overflow-hidden group border border-white/10 ${borderHoverClass} transition-all duration-500`}
-            >
-              {/* Header Badge */}
-              <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-                <div className="flex items-center gap-3">
-                  <span className="font-mono text-xs font-bold text-slate-500">
-                    [NODE 0{idx + 1}]
-                  </span>
-                  <span
-                    className={`px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase border ${badgeClass}`}
-                  >
-                    {project.categoryLabel}
-                  </span>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <button
-                    onClick={() => {
-                      soundFx.playClick();
-                      setActiveModalProject(project);
-                    }}
-                    onMouseEnter={() => soundFx.playHover()}
-                    className="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-[10px] font-mono tracking-widest text-slate-300 hover:text-white uppercase transition-all flex items-center gap-2"
-                  >
-                    <Maximize2 size={13} />
-                    <span>DEEP DIVE SPEC</span>
-                  </button>
-
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    onMouseEnter={() => soundFx.playHover()}
-                    onClick={() => soundFx.playClick()}
-                    className={`px-4 py-2 rounded-xl border text-[10px] font-mono tracking-widest uppercase transition-all flex items-center gap-2 ${
-                      isCyan
-                        ? 'border-cyan-500/50 text-cyan-300 hover:bg-cyan-500 hover:text-slate-950 shadow-[0_0_15px_rgba(6,182,212,0.2)]'
-                        : isEmerald
-                        ? 'border-emerald-500/50 text-emerald-300 hover:bg-emerald-500 hover:text-slate-950 shadow-[0_0_15px_rgba(16,185,129,0.2)]'
-                        : 'border-purple-400/50 text-purple-300 hover:bg-purple-500 hover:text-white shadow-[0_0_15px_rgba(168,85,247,0.2)]'
-                    }`}
-                  >
-                    <Github size={14} />
-                    <span>ACCESS REPO</span>
-                  </a>
-                </div>
-              </div>
-
-              {/* Title */}
-              <div className="mb-6">
-                <h3 className="font-display font-extrabold text-2xl sm:text-4xl text-white uppercase tracking-tight mb-2">
-                  {project.title} <span className={textAccent}>— {project.subtitle}</span>
-                </h3>
-                <p className="text-slate-300 text-sm sm:text-base font-light leading-relaxed max-w-3xl">
-                  {project.tagline}
-                </p>
-              </div>
-
-              {/* Problem vs Solution Grid */}
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <div className="space-y-4">
-                  <div className="p-4 rounded-2xl bg-cyber-900/60 border border-white/5 space-y-1.5">
-                    <span className="text-[9px] font-mono uppercase font-bold tracking-widest text-slate-500 block">
-                      // PROBLEM STATEMENT
-                    </span>
-                    <p className="text-xs text-slate-300 leading-relaxed">
-                      {project.problem}
-                    </p>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-cyber-900/60 border border-white/5 space-y-1.5">
-                    <span className={`text-[9px] font-mono uppercase font-bold tracking-widest ${textAccent} block`}>
-                      // ARCHITECTURAL SOLUTION
-                    </span>
-                    <p className="text-xs text-slate-300 leading-relaxed">
-                      {project.solution}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="space-y-4 flex flex-col justify-between">
-                  {/* Telemetry Metrics */}
-                  <div className="p-4 rounded-2xl bg-cyber-900/60 border border-white/5">
-                    <span className="text-[9px] font-mono uppercase font-bold tracking-widest text-slate-500 block mb-3">
-                      // PERFORMANCE METRICS
-                    </span>
-                    <div className="grid grid-cols-3 gap-2 text-center">
-                      {project.metrics.map((m, i) => (
-                        <div key={i} className="p-2.5 rounded-xl bg-white/5 border border-white/5">
-                          <div className={`font-display font-bold text-sm sm:text-base ${textAccent}`}>
-                            {m.value}
-                          </div>
-                          <div className="text-[8px] font-mono text-slate-400 uppercase tracking-tight">
-                            {m.label}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Tech Stack Pills */}
-                  <div className="p-4 rounded-2xl bg-cyber-900/60 border border-white/5">
-                    <span className="text-[9px] font-mono uppercase font-bold tracking-widest text-slate-500 block mb-2.5">
-                      // TECH STACK
-                    </span>
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.techStack.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 font-mono text-[10px] text-slate-300"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Dataflow Pipeline */}
-              <div className="border-t border-white/10 pt-6 mt-4">
-                <div className="flex items-center gap-2 mb-4">
-                  <Terminal size={14} className={textAccent} />
-                  <span className="font-mono text-xs uppercase tracking-widest text-slate-300">
-                    System Architecture Dataflow
-                  </span>
-                </div>
-
-                {project.id === 'study-ai' && (
-                  <div className="flex flex-wrap md:flex-nowrap items-center justify-between gap-3">
-                    <div className="flex-1 min-w-[110px] p-3 rounded-xl bg-cyber-950/80 border border-cyan-500/30 text-center">
-                      <FileText size={18} className="text-cyan-400 mx-auto mb-1.5" />
-                      <div className="font-mono text-[10px] uppercase font-bold text-white">01: Ingestion</div>
-                      <div className="text-[8px] font-mono text-slate-400">PDF & YT Transcripts</div>
-                    </div>
-                    <div className="hidden md:block text-cyan-400 font-mono">→</div>
-
-                    <div className="flex-1 min-w-[110px] p-3 rounded-xl bg-cyber-950/80 border border-cyan-500/30 text-center">
-                      <Database size={18} className="text-cyan-400 mx-auto mb-1.5" />
-                      <div className="font-mono text-[10px] uppercase font-bold text-white">02: Embeddings</div>
-                      <div className="text-[8px] font-mono text-slate-400">ChromaDB Chunks</div>
-                    </div>
-                    <div className="hidden md:block text-cyan-400 font-mono">→</div>
-
-                    <div className="p-3.5 rounded-2xl bg-cyan-500/10 border-2 border-cyan-400 text-center shadow-[0_0_20px_rgba(6,182,212,0.3)]">
-                      <Sparkles size={20} className="text-cyan-400 mx-auto mb-1 animate-spin" />
-                      <div className="font-display font-extrabold text-xs uppercase text-cyan-300">GEMINI ENGINE</div>
-                      <div className="text-[8px] font-mono text-white">RAG Synthesis</div>
-                    </div>
-                    <div className="hidden md:block text-cyan-400 font-mono">→</div>
-
-                    <div className="flex-1 min-w-[110px] p-3 rounded-xl bg-cyber-950/80 border border-cyan-500/30 text-center">
-                      <Search size={18} className="text-cyan-400 mx-auto mb-1.5" />
-                      <div className="font-mono text-[10px] uppercase font-bold text-white">03: Context Fetch</div>
-                      <div className="text-[8px] font-mono text-slate-400">Top-k Similarity</div>
-                    </div>
-                    <div className="hidden md:block text-cyan-400 font-mono">→</div>
-
-                    <div className="flex-1 min-w-[110px] p-3 rounded-xl bg-cyber-950/80 border border-cyan-500/30 text-center">
-                      <MessageSquare size={18} className="text-cyan-400 mx-auto mb-1.5" />
-                      <div className="font-mono text-[10px] uppercase font-bold text-white">04: Citation Q&A</div>
-                      <div className="text-[8px] font-mono text-slate-400">Verified Answers</div>
-                    </div>
-                  </div>
-                )}
-
-                {project.id === 'facemask-detector' && (
-                  <div className="flex flex-wrap md:flex-nowrap items-center justify-between gap-3">
-                    <div className="flex-1 min-w-[110px] p-3 rounded-xl bg-cyber-950/80 border border-emerald-500/30 text-center">
-                      <Camera size={18} className="text-emerald-400 mx-auto mb-1.5" />
-                      <div className="font-mono text-[10px] uppercase font-bold text-white">01: Video Frame</div>
-                      <div className="text-[8px] font-mono text-slate-400">OpenCV Camera</div>
-                    </div>
-                    <div className="hidden md:block text-emerald-400 font-mono">→</div>
-
-                    <div className="flex-1 min-w-[110px] p-3 rounded-xl bg-cyber-950/80 border border-emerald-500/30 text-center">
-                      <Activity size={18} className="text-emerald-400 mx-auto mb-1.5" />
-                      <div className="font-mono text-[10px] uppercase font-bold text-white">02: Face Detect</div>
-                      <div className="text-[8px] font-mono text-slate-400">Haar Cascade ROI</div>
-                    </div>
-                    <div className="hidden md:block text-emerald-400 font-mono">→</div>
-
-                    <div className="p-3.5 rounded-2xl bg-emerald-500/10 border-2 border-emerald-400 text-center shadow-[0_0_20px_rgba(16,185,129,0.3)]">
-                      <Layers size={20} className="text-emerald-400 mx-auto mb-1 animate-pulse" />
-                      <div className="font-display font-extrabold text-xs uppercase text-emerald-300">PYTORCH CNN</div>
-                      <div className="text-[8px] font-mono text-white">Softmax Classification</div>
-                    </div>
-                    <div className="hidden md:block text-emerald-400 font-mono">→</div>
-
-                    <div className="flex-1 min-w-[110px] p-3 rounded-xl bg-cyber-950/80 border border-emerald-500/30 text-center">
-                      <Lock size={18} className="text-emerald-400 mx-auto mb-1.5" />
-                      <div className="font-mono text-[10px] uppercase font-bold text-white">03: Safety Alert</div>
-                      <div className="text-[8px] font-mono text-slate-400">Real-Time Overlay</div>
-                    </div>
-                  </div>
-                )}
-
-                {project.id === 'vvid-chat' && (
-                  <div className="flex flex-wrap md:flex-nowrap items-center justify-between gap-3">
-                    <div className="flex-1 min-w-[110px] p-3 rounded-xl bg-cyber-950/80 border border-purple-500/30 text-center">
-                      <Users size={18} className="text-purple-400 mx-auto mb-1.5" />
-                      <div className="font-mono text-[10px] uppercase font-bold text-white">Peer Client A</div>
-                      <div className="text-[8px] font-mono text-slate-400">WebRTC MediaStream</div>
-                    </div>
-                    <div className="hidden md:block text-purple-400 font-mono">↔</div>
-
-                    <div className="p-3.5 rounded-2xl bg-purple-500/10 border-2 border-purple-400 text-center shadow-[0_0_20px_rgba(168,85,247,0.3)]">
-                      <Zap size={20} className="text-purple-400 mx-auto mb-1 animate-bounce" />
-                      <div className="font-display font-extrabold text-xs uppercase text-purple-300">SOCKET.IO SIGNAL</div>
-                      <div className="text-[8px] font-mono text-white">SDP Offer / Answer</div>
-                    </div>
-                    <div className="hidden md:block text-purple-400 font-mono">↔</div>
-
-                    <div className="flex-1 min-w-[110px] p-3 rounded-xl bg-cyber-950/80 border border-purple-500/30 text-center">
-                      <Video size={18} className="text-purple-400 mx-auto mb-1.5" />
-                      <div className="font-mono text-[10px] uppercase font-bold text-white">P2P Stream</div>
-                      <div className="text-[8px] font-mono text-slate-400">Zero Server Delay</div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </motion.div>
-          );
-        })}
+      {/* 3D Tilt Project Cards Grid */}
+      <div className="grid md:grid-cols-2 gap-8">
+        {projectsData.map((project) => (
+          <TiltCard
+            key={project.id}
+            project={project}
+            onOpenModal={(p) => setActiveModalProject(p)}
+          />
+        ))}
       </div>
 
-      {/* Deep-Dive Project Modal */}
+      {/* Deep Dive Specification Modal */}
       <AnimatePresence>
         {activeModalProject && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-black/80 backdrop-blur-2xl">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xl"
+            onClick={() => setActiveModalProject(null)}
+          >
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="glass-panel w-full max-w-4xl max-h-[90vh] overflow-y-auto p-6 sm:p-8 md:p-10 border border-cyan-500/40 relative shadow-[0_0_60px_rgba(0,0,0,0.9)] rounded-3xl"
+              initial={{ scale: 0.92, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.92, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              className="abyss-panel-glow p-6 sm:p-9 rounded-3xl border border-cyan-500/50 max-w-2xl w-full max-h-[85vh] overflow-y-auto space-y-6 relative shadow-[0_0_60px_rgba(0,0,0,0.9)]"
             >
               {/* Close Button */}
               <button
-                onClick={() => {
-                  soundFx.playClick();
-                  setActiveModalProject(null);
-                }}
-                onMouseEnter={() => soundFx.playHover()}
-                className="absolute top-6 right-6 p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white transition-colors"
+                onClick={() => setActiveModalProject(null)}
+                className="absolute top-5 right-5 p-2 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition-all cursor-pointer"
               >
                 <X size={18} />
               </button>
 
-              <div className="space-y-6">
-                <div>
-                  <span className="font-mono text-xs font-bold text-cyan-400 uppercase tracking-widest block mb-2">
-                    // DEEP ARCHITECTURE SPECIFICATION
+              <div className="space-y-2">
+                <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase border border-cyan-500/40 text-cyan-300 bg-cyan-950/70">
+                  {activeModalProject.categoryLabel}
+                </span>
+                <h3 className="font-display font-black text-2xl sm:text-3xl text-white uppercase">
+                  {activeModalProject.title} — {activeModalProject.subtitle}
+                </h3>
+              </div>
+
+              {/* Problem / Solution */}
+              <div className="space-y-4 text-xs sm:text-sm font-light">
+                <div className="p-4 rounded-2xl bg-black/50 border border-white/5 space-y-1">
+                  <span className="font-mono text-[10px] uppercase font-bold text-slate-400 block">
+                    // PROBLEM STATEMENT
                   </span>
-                  <h3 className="font-display font-extrabold text-3xl sm:text-4xl text-white uppercase">
-                    {activeModalProject.title}
-                  </h3>
-                  <p className="text-slate-400 font-mono text-xs mt-1">
-                    {activeModalProject.subtitle}
-                  </p>
+                  <p className="text-slate-300 leading-relaxed">{activeModalProject.problem}</p>
                 </div>
 
-                <div className="grid sm:grid-cols-3 gap-3">
-                  {activeModalProject.metrics.map((m, i) => (
-                    <div key={i} className="p-4 rounded-xl bg-cyber-900/80 border border-white/10 text-center">
-                      <div className="font-display font-bold text-xl text-cyan-400">{m.value}</div>
-                      <div className="text-[10px] font-mono text-slate-400 uppercase">{m.label}</div>
-                    </div>
-                  ))}
+                <div className="p-4 rounded-2xl bg-black/50 border border-white/5 space-y-1">
+                  <span className="font-mono text-[10px] uppercase font-bold text-cyan-400 block">
+                    // ARCHITECTURAL SOLUTION
+                  </span>
+                  <p className="text-slate-300 leading-relaxed">{activeModalProject.solution}</p>
                 </div>
 
-                <div className="space-y-4 text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
-                  <div className="p-4 rounded-2xl bg-cyber-900/60 border border-white/5">
-                    <h4 className="font-mono font-bold text-xs uppercase text-cyan-400 mb-2">
-                      Key System Capabilities
-                    </h4>
-                    <ul className="space-y-2">
-                      {activeModalProject.features.map((f, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <CheckCircle2 size={16} className="text-cyan-400 mt-0.5 shrink-0" />
-                          <span>{f}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-cyber-900/60 border border-white/5">
-                    <h4 className="font-mono font-bold text-xs uppercase text-purple-400 mb-2">
-                      Engineering Challenges Overcome
-                    </h4>
-                    <p>{activeModalProject.challenges}</p>
-                  </div>
-                </div>
-
-                <div className="pt-4 border-t border-white/10 flex flex-wrap justify-between items-center gap-4">
-                  <div className="flex flex-wrap gap-2">
-                    {activeModalProject.techStack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 font-mono text-xs text-slate-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <a
-                    href={activeModalProject.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    onMouseEnter={() => soundFx.playHover()}
-                    onClick={() => soundFx.playClick()}
-                    className="px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold text-xs uppercase tracking-widest flex items-center gap-2 shadow-[0_0_20px_rgba(6,182,212,0.4)] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] transition-all"
-                  >
-                    <Github size={16} />
-                    <span>VIEW GITHUB SOURCE</span>
-                    <ExternalLink size={14} />
-                  </a>
+                <div className="p-4 rounded-2xl bg-black/50 border border-white/5 space-y-1">
+                  <span className="font-mono text-[10px] uppercase font-bold text-purple-400 block">
+                    // ENGINEERING CHALLENGES OVERCOME
+                  </span>
+                  <p className="text-slate-300 leading-relaxed">{activeModalProject.challenges}</p>
                 </div>
               </div>
+
+              {/* Features List */}
+              <div className="space-y-2">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-slate-400 block font-bold">
+                  // KEY SYSTEM DELIVERABLES
+                </span>
+                {activeModalProject.features.map((feat, i) => (
+                  <div key={i} className="flex items-center gap-2.5 text-xs text-slate-300">
+                    <CheckCircle2 size={14} className="text-cyan-400 shrink-0" />
+                    <span>{feat}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Footer CTA */}
+              <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+                <span className="font-mono text-[10px] text-slate-500 uppercase">
+                  SOURCE REPOSITORY VERIFIED
+                </span>
+                <a
+                  href={activeModalProject.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  onMouseEnter={() => soundFx.playHover()}
+                  onClick={() => soundFx.playClick()}
+                  className="px-5 py-2.5 rounded-xl bg-cyan-500 text-[#01040a] font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2 hover:bg-cyan-400 transition-all cursor-pointer"
+                >
+                  <Github size={14} />
+                  <span>VIEW ON GITHUB</span>
+                </a>
+              </div>
             </motion.div>
-          </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </section>

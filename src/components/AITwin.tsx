@@ -95,7 +95,7 @@ export default function AITwin() {
     <>
       {/* Floating High-Tech Launch Button */}
       <motion.button
-        className="fixed bottom-6 right-6 z-40 px-4 py-3 rounded-full bg-cyber-900/90 border border-cyan-500/60 backdrop-blur-xl text-white flex items-center gap-3 shadow-[0_0_25px_rgba(6,182,212,0.35)] hover:shadow-[0_0_35px_rgba(6,182,212,0.6)] hover:border-cyan-400 transition-all group"
+        className="fixed bottom-6 right-6 z-40 px-4 py-3 rounded-full abyss-panel border border-cyan-500/50 backdrop-blur-xl text-white flex items-center gap-3 shadow-[0_0_30px_rgba(6,182,212,0.35)] hover:shadow-[0_0_40px_rgba(6,182,212,0.6)] hover:border-cyan-400 transition-all group cursor-pointer"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onMouseEnter={() => soundFx.playHover()}
@@ -106,17 +106,17 @@ export default function AITwin() {
       >
         <div className="relative flex items-center justify-center">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-cyan-500 to-purple-600 text-white flex items-center justify-center font-display font-extrabold text-xs shadow-md">
+          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-cyan-500 via-teal-400 to-indigo-600 text-[#01040a] flex items-center justify-center font-display font-extrabold text-xs shadow-md">
             <Bot size={18} />
           </div>
         </div>
 
         <div className="flex flex-col text-left">
           <span className="font-display font-extrabold text-xs tracking-wider uppercase group-hover:text-cyan-300 transition-colors">
-            AI Assistant
+            AI Twin Drone
           </span>
-          <span className="text-[9px] font-mono text-cyan-400 flex items-center gap-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Gemini Powered
+          <span className="text-[9px] font-mono text-cyan-300 flex items-center gap-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Gemini 1.5 Active
           </span>
         </div>
       </motion.button>
@@ -128,19 +128,19 @@ export default function AITwin() {
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed bottom-20 sm:bottom-24 right-2.5 sm:right-6 left-2.5 sm:left-auto z-50 w-auto sm:w-[420px] max-h-[82vh] sm:max-h-[580px] flex flex-col glass-panel rounded-3xl border border-cyan-500/40 shadow-[0_0_50px_rgba(0,0,0,0.9)] overflow-hidden"
+            className="fixed bottom-20 sm:bottom-24 right-2.5 sm:right-6 left-2.5 sm:left-auto z-50 w-auto sm:w-[420px] max-h-[82vh] sm:max-h-[580px] flex flex-col abyss-panel-glow rounded-3xl border border-cyan-500/40 shadow-[0_0_50px_rgba(0,0,0,0.9)] overflow-hidden"
           >
             {/* Modal Header */}
-            <div className="p-4 bg-cyber-950/90 border-b border-white/10 flex items-center justify-between">
+            <div className="p-4 bg-[#010817] border-b border-white/10 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-cyan-500 to-purple-600 text-white flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-cyan-500 via-teal-400 to-indigo-600 text-[#01040a] flex items-center justify-center">
                   <Cpu size={16} />
                 </div>
                 <div>
                   <h3 className="font-display font-bold text-sm text-white uppercase flex items-center gap-2">
                     Satyam's AI Twin
-                    <span className="text-[9px] font-mono font-normal text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded-full border border-cyan-500/30">
-                      v2.5
+                    <span className="text-[9px] font-mono font-normal text-cyan-300 bg-cyan-950/70 px-2 py-0.5 rounded-full border border-cyan-500/40">
+                      v2.5 Gemini
                     </span>
                   </h3>
                   <p className="text-[10px] font-mono text-slate-400">Contextual Knowledge Engine</p>
@@ -176,8 +176,8 @@ export default function AITwin() {
                   <div
                     className={`max-w-[82%] p-3.5 rounded-2xl ${
                       msg.role === 'user'
-                        ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-medium rounded-br-none shadow-[0_0_15px_rgba(6,182,212,0.2)]'
-                        : 'bg-cyber-900/80 border border-white/10 text-slate-200 rounded-bl-none'
+                        ? 'bg-gradient-to-r from-cyan-500 via-teal-400 to-indigo-600 text-[#01040a] font-medium rounded-br-none shadow-[0_0_15px_rgba(6,182,212,0.3)]'
+                        : 'bg-[#020b1f] border border-white/10 text-slate-200 rounded-bl-none'
                     }`}
                   >
                     <div className="prose prose-invert text-xs leading-relaxed">
@@ -203,13 +203,13 @@ export default function AITwin() {
             </div>
 
             {/* Suggested Prompts */}
-            <div className="p-2.5 bg-cyber-950/60 border-t border-white/5 flex gap-1.5 overflow-x-auto scrollbar-none">
+            <div className="p-2.5 bg-[#010613] border-t border-white/5 flex gap-1.5 overflow-x-auto scrollbar-none">
               {suggestedPrompts.map((prompt, idx) => (
                 <button
                   key={idx}
                   onClick={() => handleSend(prompt)}
                   onMouseEnter={() => soundFx.playHover()}
-                  className="px-2.5 py-1 rounded-full bg-white/5 hover:bg-cyan-500/10 border border-white/10 hover:border-cyan-400/40 text-[9px] font-mono text-slate-300 hover:text-cyan-300 whitespace-nowrap transition-all"
+                  className="px-2.5 py-1 rounded-full bg-white/5 hover:bg-cyan-500/10 border border-white/10 hover:border-cyan-400/40 text-[9px] font-mono text-slate-300 hover:text-cyan-300 whitespace-nowrap transition-all cursor-pointer"
                 >
                   {prompt}
                 </button>
@@ -222,20 +222,20 @@ export default function AITwin() {
                 e.preventDefault();
                 handleSend();
               }}
-              className="p-3 bg-cyber-950/90 border-t border-white/10 flex items-center gap-2"
+              className="p-3 bg-[#010613] border-t border-white/10 flex items-center gap-2"
             >
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask Satyam's AI Assistant..."
-                className="flex-1 px-3 py-2 rounded-xl bg-cyber-900 border border-white/10 focus:border-cyan-400 text-xs text-white placeholder-slate-500 outline-none transition-colors"
+                className="flex-1 px-3 py-2 rounded-xl bg-[#020d26] border border-white/10 focus:border-cyan-400 text-xs text-white placeholder-slate-500 outline-none transition-colors"
               />
               <button
                 type="submit"
                 disabled={!input.trim()}
                 onMouseEnter={() => soundFx.playHover()}
-                className="p-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 disabled:opacity-40 transition-all shadow-[0_0_10px_rgba(6,182,212,0.3)]"
+                className="p-2 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-400 text-[#01040a] disabled:opacity-40 transition-all shadow-[0_0_10px_rgba(6,182,212,0.3)] cursor-pointer"
               >
                 <Send size={15} />
               </button>

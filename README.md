@@ -1,48 +1,57 @@
-Satyam Sakral Portfolio
+# Satyam Sakral — Portfolio
 
-AI Engineer, Generative AI Specialist, and Full Stack Developer
-Delhi, India
-Email: satyamsakral@gmail.com
-LinkedIn: https://linkedin.com/in/satyam-sakral-5553a4240/
-GitHub: https://github.com/satyamsakral
+**AI Engineer · Full-Stack Developer**  
+*Building intelligent systems that turn ideas into products.*  
+Delhi, India | satyamsakral@gmail.com  
+Portfolio: [portfolio-z2js.vercel.app](https://portfolio-z2js.vercel.app/)  
+GitHub: [github.com/satyamsakral](https://github.com/satyamsakral)  
+LinkedIn: [linkedin.com/in/satyam-sakral-5553a4240](https://linkedin.com/in/satyam-sakral-5553a4240/)  
 
+---
 
-OVERVIEW
+## CONCEPT: OCEAN × AI RESEARCH FACILITY
 
-Welcome to the personal portfolio website of Satyam Sakral. Built with an interactive 3D Neural Mesh background and modern Bento Grid architecture, this application highlights expertise in Generative AI, Retrieval-Augmented Generation (RAG), Computer Vision, and Real-Time Systems.
+A futuristic, animation-heavy creative developer portfolio styled as an exploration of an underwater artificial intelligence research facility located at **-2,840m depth** in the oceanic abyss.
 
+### KEY EXPERIENCES & FEATURES
 
-KEY FEATURES
+1. **Cinematic System Initialization Sequence**
+   - High-tech loading sequence simulating deep-sea atmospheric calibration: `INITIALIZING SYSTEM` → `LOADING AI CORE` → `CONNECTING NEURAL NETWORK` → `SYSTEM ONLINE`.
+   - Audio feedback via Web Audio API.
 
-3D Neural Mesh Canvas
-Three.js particle constellation featuring dynamic synapse connections, camera parallax, and smooth mouse interaction.
+2. **3D WebGL Ocean & AI Facility Canvas (Three.js)**
+   - Submerged geodesic laboratory dome with rotating quantum orbit rings and central glowing AI octahedron core.
+   - Rising micro-bubbles with sinusoidal sway, bioluminescent marine snow, and deep-sea research probe.
+   - Dynamic scroll depth diving: camera descends through the oceanic trench as the visitor scrolls down.
 
-Gemini AI Twin Assistant
-Interactive floating chat widget powered by Gemini API with complete resume context to answer visitor queries.
+3. **Lenis Momentum Scrolling & Fluid Custom Cursor**
+   - Buttery smooth inertia scrolling via Lenis.
+   - Precision cursor with central dot, tracking ring, trailing wake, and contextual card labels (`SPEC`, `EXPLORE`).
 
-Cyber Bento Flagship Showcase
-Detailed project cards featuring system dataflow diagrams and interactive architecture spec modals.
+4. **Featured Flagship Case Study: Study AI 2.0**
+   - Interactive 6-stage RAG dataflow simulation:
+     - 01: Document & Video Ingestion (PDFs & YouTube Transcripts)
+     - 02: Sliding-Window Semantic Chunking (500-token chunks)
+     - 03: 768-Dim Dense Vector Embeddings
+     - 04: Vector Search & Cosine Similarity (ChromaDB / Supabase)
+     - 05: Gemini API Grounded Reasoning
+     - 06: Verified Citations & Adaptive Curriculum Output
+   - Real-time dataflow simulator button with synthesized audio tones.
 
-Career Timeline and Credentials
-Work experience at Ethara AI and Doosra College alongside academic credentials from GGSIPU with MCA CGPA 8.2 out of 10.
+5. **3D Tilt Project Cards & Telemetry**
+   - Real-time mouse perspective calculation and dynamic glare reflection.
+   - **FaceMask Detector:** PyTorch CNN & OpenCV Haar Cascades (~81% accuracy, 32 FPS).
+   - **VividChat:** Low-latency WebRTC P2P video hub with Django & Socket.io (<50ms ping).
+   - Deep Dive Spec interactive modal inspector.
 
-Glassmorphism Aesthetics
-Custom precision cursor, frosted glass panels, neon gradient accents, marquee tickers, and interactive sound FX.
+6. **Interactive Neural Network Skill Matrix**
+   - 22 interconnected technology nodes in an interactive synaptic mesh.
+   - Hovering any technology illuminates connected synapses, dims unrelated nodes, and displays live telemetry.
 
+7. **Gemini AI Twin Drone Assistant**
+   - Floating deep-sea research drone widget powered by Gemini API (`/api/chat`) with markdown streaming and comprehensive fallback mode.
 
-FLAGSHIP PROJECTS
-
-Study AI (Deep RAG and Contextual Synthesis Engine)
-Repository: https://github.com/satyamsakral/Study_Ai_2
-An autonomous learning assistant powered by Gemini API, LangChain, and ChromaDB vector search. Processes book PDFs and YouTube transcripts to generate personalized study plans and citation-backed QA.
-
-FaceMask Detector (Edge Capable CNN Classifier)
-Repository: https://github.com/satyamsakral/FaceMaskDetector
-Real-time computer vision classifier built with PyTorch and OpenCV achieving 81 percent accuracy on live webcam video streams.
-
-VividChat (WebRTC Low Latency Video Hub)
-Repository: https://github.com/satyamsakral/Vvid-Chat
-Peer to peer video calling hub utilizing Django backend and WebRTC for direct connections with Socket.io signaling.
+---
 
 
 TECHNICAL STACK

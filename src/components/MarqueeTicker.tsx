@@ -41,7 +41,7 @@ export default function MarqueeTicker({
 
   return (
     <div
-      className={`relative w-full overflow-hidden py-3 border-y border-white/10 bg-cyber-950/80 backdrop-blur-xl select-none ${className}`}
+      className={`relative w-full overflow-hidden py-3 border-y border-cyan-500/15 bg-[#01040a]/90 backdrop-blur-xl select-none ${className}`}
     >
       <motion.div
         className="flex whitespace-nowrap gap-8 items-center"

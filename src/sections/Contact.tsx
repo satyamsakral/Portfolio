@@ -1,6 +1,21 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Linkedin, Github, Copy, Check, Send, Sparkles, Terminal, Code2, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import {
+  Mail,
+  Linkedin,
+  Github,
+  Copy,
+  Check,
+  Send,
+  Sparkles,
+  Terminal,
+  Download,
+  ArrowUpRight,
+  ShieldCheck,
+  Compass,
+  Phone,
+  Radio
+} from 'lucide-react';
 import { soundFx } from '../utils/audio';
 
 export default function Contact() {
@@ -21,9 +36,9 @@ export default function Contact() {
     soundFx.playClick();
 
     try {
-      const subject = encodeURIComponent(`Portfolio Inquiry from ${formData.name}`);
+      const subject = encodeURIComponent(`Inquiry from ${formData.name}`);
       const body = encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nTransmission:\n${formData.message}`
       );
       window.location.href = `mailto:satyamsakral@gmail.com?subject=${subject}&body=${body}`;
 
@@ -36,72 +51,76 @@ export default function Contact() {
     }
   };
 
-  const socialLinks = [
+  const socialChannels = [
     {
       label: 'LinkedIn',
       handle: 'satyam-sakral',
       url: 'https://linkedin.com/in/satyam-sakral-5553a4240/',
       icon: Linkedin,
       color: 'text-cyan-400',
-      border: 'hover:border-cyan-400/50',
     },
     {
       label: 'GitHub',
       handle: '@satyamsakral',
       url: 'https://github.com/satyamsakral',
       icon: Github,
-      color: 'text-emerald-400',
-      border: 'hover:border-emerald-400/50',
+      color: 'text-teal-400',
     },
     {
-      label: 'LeetCode',
-      handle: '@XKhzXGWgdV',
-      url: 'https://leetcode.com/u/XKhzXGWgdV/',
-      icon: Code2,
+      label: 'Download Resume',
+      handle: 'Satyam_Sakral_Resume.pdf',
+      url: '/satyam_sakral_resume.pdf',
+      icon: Download,
       color: 'text-purple-400',
-      border: 'hover:border-purple-400/50',
+      download: true,
     },
   ];
 
   return (
-    <section id="contact" className="py-24 px-4 md:px-12 relative z-10 max-w-7xl mx-auto w-full flex flex-col">
+    <section id="contact" className="py-24 sm:py-32 px-4 sm:px-8 md:px-12 relative z-10 max-w-7xl mx-auto w-full flex flex-col">
+      {/* Background Ascent Caustic Glow */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-cyan-500/10 blur-[150px] rounded-full pointer-events-none -z-10 animate-pulse-slow" />
+
       {/* Header */}
-      <div className="mb-16">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/40 font-mono text-[10px] text-cyan-400 uppercase tracking-widest mb-3">
-          <Sparkles size={12} />
-          <span>DIRECT TRANSMISSION CHANNEL</span>
+      <div className="mb-14">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/40 font-mono text-[10px] text-cyan-300 uppercase tracking-widest mb-3">
+          <Radio size={12} className="animate-pulse" />
+          <span>FACILITY ASCENT & SURFACE UPLINK</span>
         </div>
-        <h2 className="font-display font-extrabold text-4xl md:text-5xl text-white tracking-tight uppercase">
-          GET IN <span className="gradient-text-cyan">TOUCH</span>
+        <h2 className="font-display font-black text-4xl sm:text-5xl md:text-7xl text-white tracking-tight uppercase leading-[1.08]">
+          LET'S BUILD <span className="gradient-text-cyan">SOMETHING INTELLIGENT.</span>
         </h2>
+        <p className="text-slate-300 font-mono text-xs sm:text-base mt-3 max-w-2xl leading-relaxed font-light">
+          Ascending from the deep oceanic AI facility. Direct transmission channel is open for high-impact AI engineering roles, RAG builds, and collaborative software projects.
+        </p>
       </div>
 
       <div className="grid lg:grid-cols-12 gap-8">
         {/* Left Telemetry Column */}
         <div className="lg:col-span-5 space-y-6">
-          {/* Quick Copy Email Card */}
+          {/* Direct Email Card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             onMouseEnter={() => soundFx.playHover()}
-            className="glass-panel p-6 sm:p-8 rounded-3xl border border-white/10 relative overflow-hidden"
+            className="abyss-panel p-6 sm:p-8 rounded-3xl border border-cyan-500/30 relative overflow-hidden space-y-4"
           >
-            <div className="flex items-center justify-between mb-4">
-              <span className="font-mono text-xs font-bold text-cyan-400 uppercase tracking-widest">
-                DIRECT EMAIL INBOX
+            <div className="flex items-center justify-between">
+              <span className="font-mono text-xs font-bold text-cyan-300 uppercase tracking-widest">
+                DIRECT INBOX TRANSMISSION
               </span>
-              <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#10b981] animate-pulse" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_10px_#10b981] animate-pulse" />
             </div>
 
-            <p className="text-xs text-slate-300 font-light mb-4 leading-relaxed">
-              Reach out directly for AI engineering positions, RAG system builds, or collaborative full-stack projects.
+            <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
+              Open to full-time AI Engineer, GenAI/RAG Developer, and Full-Stack Engineering roles worldwide (Remote or Hybrid).
             </p>
 
-            <div className="p-3.5 rounded-2xl bg-cyber-900/80 border border-white/10 flex items-center justify-between gap-2">
-              <div className="flex items-center gap-2 overflow-hidden">
-                <Mail size={16} className="text-cyan-400 shrink-0" />
-                <span className="font-mono text-xs text-white truncate">
+            <div className="p-4 rounded-2xl bg-[#020b1f] border border-white/10 flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2.5 overflow-hidden">
+                <Mail size={18} className="text-cyan-400 shrink-0" />
+                <span className="font-mono text-xs sm:text-sm text-white truncate font-medium">
                   satyamsakral@gmail.com
                 </span>
               </div>
@@ -110,7 +129,7 @@ export default function Contact() {
                 type="button"
                 onClick={handleCopyEmail}
                 onMouseEnter={() => soundFx.playHover()}
-                className="px-3 py-1.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 text-[10px] font-mono font-bold tracking-widest uppercase transition-colors shrink-0 flex items-center gap-1.5"
+                className="px-3.5 py-1.5 rounded-xl bg-cyan-500/15 hover:bg-cyan-500/30 text-cyan-300 text-[10px] font-mono font-bold tracking-widest uppercase transition-colors shrink-0 flex items-center gap-1.5 cursor-pointer"
               >
                 {copied ? (
                   <>
@@ -127,15 +146,16 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Social Links Cards */}
-          <div className="grid gap-3">
-            {socialLinks.map((social, idx) => {
+          {/* Social Channels */}
+          <div className="space-y-3">
+            {socialChannels.map((social, idx) => {
               const Icon = social.icon;
               return (
                 <motion.a
-                  key={idx}
+                  key={social.label}
                   href={social.url}
-                  target="_blank"
+                  download={social.download ? 'Satyam_Sakral_Resume.pdf' : undefined}
+                  target={social.download ? undefined : '_blank'}
                   rel="noreferrer"
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -143,9 +163,9 @@ export default function Contact() {
                   transition={{ delay: idx * 0.1 }}
                   onMouseEnter={() => soundFx.playHover()}
                   onClick={() => soundFx.playClick()}
-                  className={`glass-panel p-4 rounded-2xl border border-white/10 ${social.border} transition-all flex items-center justify-between group`}
+                  className="abyss-panel p-4 rounded-2xl border border-white/10 hover:border-cyan-400/50 transition-all flex items-center justify-between group cursor-pointer"
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3.5">
                     <div className={`p-2.5 rounded-xl bg-white/5 ${social.color}`}>
                       <Icon size={18} />
                     </div>
@@ -159,112 +179,115 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <ArrowUpRight size={16} className="text-slate-500 group-hover:text-white transition-colors" />
+                  <ArrowUpRight size={15} className="text-slate-500 group-hover:text-cyan-300 transition-colors" />
                 </motion.a>
               );
             })}
           </div>
+
+          {/* Telemetry Status Pin */}
+          <div className="p-4 rounded-2xl bg-black/40 border border-white/5 font-mono text-[11px] text-slate-400 space-y-1.5">
+            <div className="flex items-center justify-between">
+              <span className="text-slate-500 uppercase">LOCATION:</span>
+              <span className="text-slate-200">Delhi, India (Open to Remote / Relocation)</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-slate-500 uppercase">RESPONSE TIME:</span>
+              <span className="text-emerald-400">&lt; 12 Hours</span>
+            </div>
+          </div>
         </div>
 
-        {/* Right Interactive Form Column */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="lg:col-span-7 glass-panel p-6 sm:p-8 md:p-10 rounded-3xl border border-white/10 relative overflow-hidden"
-        >
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <span className="font-mono text-xs font-bold text-cyan-400 uppercase tracking-widest block mb-1">
-                // DISPATCH MESSAGE
+        {/* Right Transmission Form Column */}
+        <div className="lg:col-span-7">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="abyss-panel-glow p-6 sm:p-9 rounded-3xl border border-cyan-500/30 space-y-6"
+          >
+            <div className="flex items-center justify-between border-b border-white/10 pb-4">
+              <span className="font-mono text-xs font-bold text-cyan-300 uppercase tracking-widest flex items-center gap-2">
+                <Terminal size={14} /> TRANSMISSION CONSOLE
               </span>
-              <h3 className="font-display font-extrabold text-2xl text-white uppercase">
-                Send Direct Message
-              </h3>
-            </div>
-            <Terminal size={20} className="text-slate-600" />
-          </div>
-
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <div>
-              <label htmlFor="contact-name" className="block text-[10px] font-mono uppercase text-slate-400 tracking-widest mb-1.5">
-                Full Name
-              </label>
-              <input
-                id="contact-name"
-                type="text"
-                required
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                placeholder="e.g. Alex Mercer"
-                className="w-full px-4 py-3 rounded-xl bg-cyber-900/80 border border-white/10 focus:border-cyan-400 text-xs text-white placeholder-slate-600 outline-none transition-colors"
-              />
+              <span className="text-[10px] font-mono text-slate-500 uppercase">
+                ENCRYPTION: 256-BIT
+              </span>
             </div>
 
-            <div>
-              <label htmlFor="contact-email" className="block text-[10px] font-mono uppercase text-slate-400 tracking-widest mb-1.5">
-                Email Address
-              </label>
-              <input
-                id="contact-email"
-                type="email"
-                required
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                placeholder="alex@company.com"
-                className="w-full px-4 py-3 rounded-xl bg-cyber-900/80 border border-white/10 focus:border-cyan-400 text-xs text-white placeholder-slate-600 outline-none transition-colors"
-              />
-            </div>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="space-y-1.5">
+                  <label className="font-mono text-[10px] text-slate-400 uppercase tracking-widest font-bold">
+                    YOUR NAME // IDENTIFIER
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder="e.g. Dr. Jane Doe"
+                    className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 focus:border-cyan-400 focus:outline-none font-mono text-xs text-white placeholder-slate-600 transition-colors"
+                  />
+                </div>
 
-            <div>
-              <label htmlFor="contact-message" className="block text-[10px] font-mono uppercase text-slate-400 tracking-widest mb-1.5">
-                Message Content
-              </label>
-              <textarea
-                id="contact-message"
-                required
-                rows={4}
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                placeholder="Discuss project requirements, hiring details, or technology..."
-                className="w-full px-4 py-3 rounded-xl bg-cyber-900/80 border border-white/10 focus:border-cyan-400 text-xs text-white placeholder-slate-600 outline-none transition-colors resize-none"
-              />
-            </div>
+                <div className="space-y-1.5">
+                  <label className="font-mono text-[10px] text-slate-400 uppercase tracking-widest font-bold">
+                    RETURN TRANSMISSION EMAIL
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    placeholder="e.g. jane@company.ai"
+                    className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 focus:border-cyan-400 focus:outline-none font-mono text-xs text-white placeholder-slate-600 transition-colors"
+                  />
+                </div>
+              </div>
 
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onMouseEnter={() => soundFx.playHover()}
-              type="submit"
-              disabled={status === 'sending'}
-              className="w-full py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:shadow-[0_0_35px_rgba(6,182,212,0.6)] transition-all disabled:opacity-50"
-            >
-              {status === 'sending' ? (
-                <span>Dispatching...</span>
-              ) : status === 'success' ? (
-                <>
-                  <CheckCircle2 size={16} className="text-slate-950" />
-                  <span>Message Client Opened</span>
-                </>
-              ) : (
-                <>
-                  <Send size={15} />
-                  <span>Transmit Message</span>
-                </>
+              <div className="space-y-1.5">
+                <label className="font-mono text-[10px] text-slate-400 uppercase tracking-widest font-bold">
+                  TRANSMISSION PAYLOAD // INQUIRY
+                </label>
+                <textarea
+                  required
+                  rows={4}
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  placeholder="Describe your AI opportunity, RAG pipeline requirements, or full-stack role..."
+                  className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 focus:border-cyan-400 focus:outline-none font-mono text-xs text-white placeholder-slate-600 transition-colors resize-none"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={status === 'sending'}
+                onMouseEnter={() => soundFx.playHover()}
+                className="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 via-teal-400 to-indigo-600 text-[#01040a] font-mono text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 hover:shadow-[0_0_25px_rgba(34,211,238,0.5)] transition-all cursor-pointer disabled:opacity-50"
+              >
+                <Send size={15} />
+                <span>INITIATE TRANSMISSION</span>
+              </button>
+
+              {status === 'success' && (
+                <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-mono text-xs text-center">
+                  Transmission initiated! Email client opening...
+                </div>
               )}
-            </motion.button>
-          </form>
-        </motion.div>
+            </form>
+          </motion.div>
+        </div>
       </div>
 
-      {/* Footer copyright & credits */}
-      <footer className="mt-16 sm:mt-20 pt-6 sm:pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 font-mono gap-3 text-center sm:text-left">
-        <div>
-          © {new Date().getFullYear()} Satyam Sakral • Built with React 19, Three.js & Tailwind CSS
+      {/* Facility Surface Ascent Footer */}
+      <footer className="mt-24 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-slate-500">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+          <span>PROJECT ABYSS // FACILITY SECTOR 07 DECLASSIFIED</span>
         </div>
-        <div className="flex items-center gap-2 text-cyan-400">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="text-[10px] tracking-wider uppercase text-slate-400">Satyam Sakral Portfolio</span>
+        <div>
+          © {new Date().getFullYear()} SATYAM SAKRAL · ALL RIGHTS RESERVED
         </div>
       </footer>
     </section>
