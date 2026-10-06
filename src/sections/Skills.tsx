@@ -316,13 +316,13 @@ export default function Skills() {
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/40 font-mono text-[10px] text-cyan-300 uppercase tracking-widest mb-3">
             <Cpu size={12} />
-            <span>SYNAPTIC KNOWLEDGE GRAPH</span>
+            <span>SKILLS & EXPERTISE</span>
           </div>
           <h2 className="font-display font-black text-4xl sm:text-5xl md:text-6xl text-white tracking-tight uppercase">
-            NEURAL <span className="gradient-text-cyan">SKILL MATRIX</span>
+            SKILLS & <span className="gradient-text-cyan">TECHNOLOGIES</span>
           </h2>
           <p className="text-slate-300 font-mono text-xs sm:text-sm mt-2 max-w-2xl leading-relaxed">
-            Hover over any technology node to illuminate interconnected neural synapses and inspect production systems.
+            Interactive network visualization of my core technologies. Hover over any skill to see connections and project usage.
           </p>
         </div>
 
@@ -448,10 +448,10 @@ export default function Skills() {
                 >
                   <div className="flex items-center justify-between border-b border-white/10 pb-2">
                     <span className="text-[10px] font-mono text-cyan-300 font-bold uppercase">
-                      {hoveredNode.categoryLabel} // SYNAPSE NODE
+                      {hoveredNode.categoryLabel}
                     </span>
                     <span className="text-[9px] font-mono text-slate-400">
-                      {hoveredNode.connections.length} SYNAPTIC LINKS
+                      {hoveredNode.connections.length} CONNECTIONS
                     </span>
                   </div>
 
@@ -463,7 +463,7 @@ export default function Skills() {
                   </div>
 
                   <div className="text-[11px] font-mono text-slate-300 flex items-center gap-1.5">
-                    <span className="text-slate-500 uppercase">PROD ROLE:</span>
+                    <span className="text-slate-500 uppercase">APPLIED IN:</span>
                     <span className="text-cyan-200 truncate">
                       {hoveredNode.projects.join(' · ')}
                     </span>
@@ -472,7 +472,7 @@ export default function Skills() {
               ) : (
                 <div className="hidden sm:flex items-center gap-2 p-3 rounded-xl bg-black/60 border border-white/10 text-[11px] font-mono text-slate-400 backdrop-blur-md">
                   <Info size={14} className="text-cyan-400" />
-                  <span>Hover any neural node to inspect connections and project applications</span>
+                  <span>Hover any skill node to inspect connections and project applications</span>
                 </div>
               )}
             </AnimatePresence>

@@ -88,13 +88,13 @@ export default function About() {
       <div className="mb-14">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/40 font-mono text-[10px] text-cyan-300 uppercase tracking-widest mb-3">
           <Terminal size={12} />
-          <span>RESEARCHER DOSSIER // SECTOR 07</span>
+          <span>ENGINEERING BACKGROUND</span>
         </div>
         <h2 className="font-display font-black text-4xl sm:text-5xl md:text-6xl text-white tracking-tight uppercase">
-          ABOUT <span className="gradient-text-cyan">THE ARCHITECT</span>
+          ABOUT <span className="gradient-text-cyan">ME</span>
         </h2>
         <p className="text-slate-400 font-mono text-xs sm:text-sm mt-2 max-w-2xl">
-          Bridging cutting-edge artificial intelligence research and mission-critical production software engineering.
+          AI Engineer and Full-Stack Developer bridging state-of-the-art machine learning models with production software engineering.
         </p>
       </div>
 
@@ -118,9 +118,9 @@ export default function About() {
                 <div className="w-full h-full rounded-full bg-[#02091b] flex flex-col items-center justify-center text-center p-2">
                   <Cpu size={26} className="text-cyan-300 animate-pulse" />
                   <span className="font-mono text-[9px] font-bold text-cyan-200 uppercase tracking-widest mt-1">
-                    AI CORE
+                    AI & ML
                   </span>
-                  <span className="font-mono text-[8px] text-slate-400">ACTIVE</span>
+                  <span className="font-mono text-[8px] text-slate-400">ENGINEER</span>
                 </div>
               </div>
             </div>

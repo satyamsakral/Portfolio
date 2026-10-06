@@ -79,16 +79,15 @@ export default function Navigation() {
               SATYAM
             </span>
             <span className="text-[9px] font-mono text-cyan-400/80 tracking-wider uppercase flex items-center gap-1">
-              ABYSS-07 AI LAB
+              AI & FULL-STACK
             </span>
           </div>
         </a>
 
-        {/* Center Live Depth HUD (Desktop) */}
+        {/* Center Live Status HUD (Desktop) */}
         <div className="hidden lg:flex items-center gap-3 px-4 py-2 rounded-full abyss-panel border border-white/10 font-mono text-[10px] tracking-widest uppercase text-slate-300 shadow-[0_0_20px_rgba(0,0,0,0.5)]">
-          <span className="flex items-center gap-1.5 text-cyan-300">
-            <Compass size={12} className="text-cyan-400 animate-spin-slow" />
-            <span>DEPTH: -{depthMeters}M</span>
+          <span className="text-slate-300">
+            DELHI, INDIA
           </span>
           <span className="text-slate-600">|</span>
           <span className="inline-flex items-center gap-1.5 text-emerald-400 font-semibold">
@@ -190,10 +189,7 @@ export default function Navigation() {
           >
             {/* Status Telemetry */}
             <div className="flex items-center justify-between px-3 py-2 rounded-2xl bg-abyss-950/80 border border-white/5 font-mono text-[10px]">
-              <div className="flex items-center gap-2 text-cyan-300">
-                <Compass size={12} />
-                <span>DEPTH: -{depthMeters}M</span>
-              </div>
+              <span className="text-slate-300 uppercase">Delhi, India</span>
               <span className="text-emerald-400 uppercase font-bold flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 AVAILABLE FOR OPPORTUNITIES

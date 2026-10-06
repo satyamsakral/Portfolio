@@ -85,13 +85,13 @@ export default function Contact() {
       <div className="mb-14">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/40 font-mono text-[10px] text-cyan-300 uppercase tracking-widest mb-3">
           <Radio size={12} className="animate-pulse" />
-          <span>FACILITY ASCENT & SURFACE UPLINK</span>
+          <span>CONTACT & OPPORTUNITIES</span>
         </div>
         <h2 className="font-display font-black text-4xl sm:text-5xl md:text-7xl text-white tracking-tight uppercase leading-[1.08]">
           LET'S BUILD <span className="gradient-text-cyan">SOMETHING INTELLIGENT.</span>
         </h2>
         <p className="text-slate-300 font-mono text-xs sm:text-base mt-3 max-w-2xl leading-relaxed font-light">
-          Ascending from the deep oceanic AI facility. Direct transmission channel is open for high-impact AI engineering roles, RAG builds, and collaborative software projects.
+          I'm currently available for full-time AI Engineering, RAG Development, and Full-Stack Software roles. Reach out directly or send a message below.
         </p>
       </div>
 
@@ -108,7 +108,7 @@ export default function Contact() {
           >
             <div className="flex items-center justify-between">
               <span className="font-mono text-xs font-bold text-cyan-300 uppercase tracking-widest">
-                DIRECT INBOX TRANSMISSION
+                DIRECT EMAIL
               </span>
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_10px_#10b981] animate-pulse" />
             </div>
@@ -208,10 +208,10 @@ export default function Contact() {
           >
             <div className="flex items-center justify-between border-b border-white/10 pb-4">
               <span className="font-mono text-xs font-bold text-cyan-300 uppercase tracking-widest flex items-center gap-2">
-                <Terminal size={14} /> TRANSMISSION CONSOLE
+                <Terminal size={14} /> SEND A MESSAGE
               </span>
-              <span className="text-[10px] font-mono text-slate-500 uppercase">
-                ENCRYPTION: 256-BIT
+              <span className="text-[10px] font-mono text-slate-400 uppercase">
+                DELHI, INDIA
               </span>
             </div>
 
@@ -219,28 +219,28 @@ export default function Contact() {
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <label className="font-mono text-[10px] text-slate-400 uppercase tracking-widest font-bold">
-                    YOUR NAME // IDENTIFIER
+                    YOUR NAME
                   </label>
                   <input
                     type="text"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="e.g. Dr. Jane Doe"
+                    placeholder="e.g. Alex Smith"
                     className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 focus:border-cyan-400 focus:outline-none font-mono text-xs text-white placeholder-slate-600 transition-colors"
                   />
                 </div>
 
                 <div className="space-y-1.5">
                   <label className="font-mono text-[10px] text-slate-400 uppercase tracking-widest font-bold">
-                    RETURN TRANSMISSION EMAIL
+                    YOUR EMAIL
                   </label>
                   <input
                     type="email"
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="e.g. jane@company.ai"
+                    placeholder="e.g. alex@company.com"
                     className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 focus:border-cyan-400 focus:outline-none font-mono text-xs text-white placeholder-slate-600 transition-colors"
                   />
                 </div>
@@ -248,14 +248,14 @@ export default function Contact() {
 
               <div className="space-y-1.5">
                 <label className="font-mono text-[10px] text-slate-400 uppercase tracking-widest font-bold">
-                  TRANSMISSION PAYLOAD // INQUIRY
+                  YOUR MESSAGE
                 </label>
                 <textarea
                   required
                   rows={4}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Describe your AI opportunity, RAG pipeline requirements, or full-stack role..."
+                  placeholder="Tell me about your AI opportunity, project, or role..."
                   className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 focus:border-cyan-400 focus:outline-none font-mono text-xs text-white placeholder-slate-600 transition-colors resize-none"
                 />
               </div>
@@ -267,12 +267,12 @@ export default function Contact() {
                 className="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 via-teal-400 to-indigo-600 text-[#01040a] font-mono text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 hover:shadow-[0_0_25px_rgba(34,211,238,0.5)] transition-all cursor-pointer disabled:opacity-50"
               >
                 <Send size={15} />
-                <span>INITIATE TRANSMISSION</span>
+                <span>SEND MESSAGE</span>
               </button>
 
               {status === 'success' && (
                 <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-mono text-xs text-center">
-                  Transmission initiated! Email client opening...
+                  Message initiated! Opening email client...
                 </div>
               )}
             </form>
@@ -280,14 +280,14 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* Facility Surface Ascent Footer */}
+      {/* Footer */}
       <footer className="mt-24 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-slate-500">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-          <span>PROJECT ABYSS // FACILITY SECTOR 07 DECLASSIFIED</span>
+          <span>SATYAM SAKRAL · AI ENGINEER & FULL-STACK DEVELOPER</span>
         </div>
         <div>
-          © {new Date().getFullYear()} SATYAM SAKRAL · ALL RIGHTS RESERVED
+          © {new Date().getFullYear()} ALL RIGHTS RESERVED
         </div>
       </footer>
     </section>

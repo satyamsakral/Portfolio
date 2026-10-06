@@ -47,13 +47,13 @@ export default function Education() {
       <div className="mb-14">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/40 font-mono text-[10px] text-cyan-300 uppercase tracking-widest mb-3">
           <GraduationCap size={12} />
-          <span>VERIFIED ACADEMIC DOSSIER</span>
+          <span>ACADEMIC BACKGROUND</span>
         </div>
         <h2 className="font-display font-black text-4xl sm:text-5xl md:text-6xl text-white tracking-tight uppercase">
           EDUCATION & <span className="gradient-text-cyan">CREDENTIALS</span>
         </h2>
         <p className="text-slate-300 font-mono text-xs sm:text-sm mt-2 max-w-2xl leading-relaxed">
-          Post-graduate foundation in Computer Applications paired with elite IIT certification in applied AI.
+          Master of Computer Applications graduate from GGSIPU with specialized certification in applied AI.
         </p>
       </div>
 

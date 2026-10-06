@@ -141,7 +141,7 @@ export default function FeaturedStudyAI() {
       <div className="mb-14">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/40 font-mono text-[10px] text-cyan-300 uppercase tracking-widest mb-3">
           <Sparkles size={12} />
-          <span>FLAGSHIP AI PRODUCTION ARCHITECTURE</span>
+          <span>FLAGSHIP PROJECT</span>
         </div>
         <h2 className="font-display font-black text-4xl sm:text-5xl md:text-6xl text-white tracking-tight uppercase">
           STUDY AI 2.0 <span className="gradient-text-cyan">— RAG PLATFORM</span>
@@ -296,7 +296,7 @@ export default function FeaturedStudyAI() {
               {/* Left Stage Overview */}
               <div className="md:col-span-7 space-y-4">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/70 border border-cyan-500/40 font-mono text-[10px] text-cyan-300 uppercase tracking-widest font-bold">
-                  STAGE {currentStage.step} EXECUTION // {currentStage.tech}
+                  STAGE {currentStage.step} · {currentStage.tech}
                 </div>
                 <h3 className="font-display font-black text-2xl sm:text-3xl text-white uppercase">
                   {currentStage.name}
@@ -307,7 +307,7 @@ export default function FeaturedStudyAI() {
 
                 <div className="flex items-center gap-3 pt-2 font-mono text-xs text-cyan-300">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>Real-Time Execution Pipeline Active</span>
+                  <span>Pipeline Stage Active</span>
                 </div>
               </div>
 

@@ -40,13 +40,13 @@ export default function Experience() {
       <div className="mb-14">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/40 font-mono text-[10px] text-cyan-300 uppercase tracking-widest mb-3">
           <Briefcase size={12} />
-          <span>PRODUCTION WORK RECORD</span>
+          <span>WORK HISTORY</span>
         </div>
         <h2 className="font-display font-black text-4xl sm:text-5xl md:text-6xl text-white tracking-tight uppercase">
-          ENGINEERING <span className="gradient-text-cyan">EXPERIENCE</span>
+          WORK <span className="gradient-text-cyan">EXPERIENCE</span>
         </h2>
         <p className="text-slate-300 font-mono text-xs sm:text-sm mt-2 max-w-2xl leading-relaxed">
-          Chronological record of hands-on model training, dataset engineering, and backend database optimization.
+          Hands-on industry experience across LLM post-training optimization, dataset engineering, and backend development.
         </p>
       </div>
 

@@ -17,7 +17,7 @@ export default function Hero() {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-7 space-y-7"
         >
-          {/* Subsea Facility Telemetry Badge */}
+          {/* Status Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -25,12 +25,12 @@ export default function Hero() {
             className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full abyss-panel border border-cyan-500/40 text-cyan-300 text-xs font-mono font-medium tracking-wide shadow-[0_0_20px_rgba(6,182,212,0.25)]"
           >
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
             </span>
-            <span className="text-slate-400">FACILITY SECTOR 07</span>
+            <span className="text-slate-300">DELHI, INDIA</span>
             <span className="text-slate-600">|</span>
-            <span className="text-cyan-300 font-semibold">AI SYSTEMS ONLINE</span>
+            <span className="text-cyan-300 font-semibold">AVAILABLE FOR OPPORTUNITIES</span>
           </motion.div>
 
           {/* Main Name & Title */}
@@ -53,7 +53,7 @@ export default function Hero() {
 
           {/* Core Elevator Pitch */}
           <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl font-light">
-            Deep-sea neural systems architect specializing in <span className="text-cyan-300 font-medium">Generative AI</span>, production <span className="text-cyan-300 font-medium">RAG Pipelines</span>, and distributed full-stack engineering. Transforming complex model research into deterministic, high-throughput applications.
+            AI Engineer & Full-Stack Developer specializing in <span className="text-cyan-300 font-medium">Generative AI</span>, production <span className="text-cyan-300 font-medium">RAG Pipelines</span>, and scalable distributed software systems. Turning complex neural research into deterministic, high-impact products.
           </p>
 
           {/* Action CTAs */}
@@ -66,7 +66,7 @@ export default function Hero() {
               href="#flagship"
               className="px-7 py-3.5 rounded-full bg-gradient-to-r from-cyan-500 via-teal-400 to-indigo-600 text-[#01040a] font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:shadow-[0_0_40px_rgba(6,182,212,0.8)] transition-all cursor-pointer"
             >
-              Study AI 2.0 Spec <ArrowRight size={16} />
+              Study AI 2.0 <ArrowRight size={16} />
             </motion.a>
 
             <motion.a
@@ -162,7 +162,7 @@ export default function Hero() {
         transition={{ delay: 1.2, duration: 0.8 }}
         className="pt-16 pb-4 flex flex-col items-center justify-center text-slate-500 text-xs font-mono tracking-widest uppercase gap-2"
       >
-        <span>DESCEND INTO RESEARCH SECTOR</span>
+        <span>SCROLL TO EXPLORE</span>
         <ChevronDown size={16} className="animate-bounce text-cyan-400" />
       </motion.div>
     </section>

@@ -8,10 +8,10 @@ interface LoadingScreenProps {
 }
 
 const steps = [
-  { label: 'INITIALIZING SYSTEM', sub: 'Calibrating deep-sea atmospheric telemetry', progress: 25 },
-  { label: 'LOADING AI CORE', sub: 'Mounting Gemini & LangChain RAG pipelines', progress: 55 },
-  { label: 'CONNECTING NEURAL NETWORK', sub: 'Synchronizing 768-dim vector embeddings', progress: 85 },
-  { label: 'SYSTEM ONLINE', sub: 'Facility Sector 07 ready for exploration', progress: 100 },
+  { label: 'INITIALIZING SYSTEM', sub: 'Setting up runtime environment', progress: 25 },
+  { label: 'LOADING AI CORE', sub: 'Mounting Gemini & LangChain RAG architecture', progress: 55 },
+  { label: 'CONNECTING NEURAL NETWORK', sub: 'Synchronizing interactive portfolio systems', progress: 85 },
+  { label: 'SYSTEM ONLINE', sub: "Welcome to Satyam Sakral's portfolio", progress: 100 },
 ];
 
 export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
@@ -94,17 +94,17 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
               <span className="absolute top-1 right-2 w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee] animate-ping" />
             </div>
 
-            {/* Subsea Facility Metadata */}
+            {/* Identity Metadata */}
             <div className="space-y-1">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 font-mono text-[10px] text-cyan-400 uppercase tracking-widest">
                 <Radio size={11} className="animate-pulse text-cyan-300" />
-                <span>ABYSS RESEARCH FACILITY // SECTOR 07</span>
+                <span>AI ENGINEER · FULL-STACK DEVELOPER</span>
               </div>
               <h2 className="font-display font-black text-2xl tracking-tight text-white uppercase pt-2">
                 SATYAM <span className="gradient-text-cyan">SAKRAL</span>
               </h2>
               <p className="font-mono text-xs text-slate-400">
-                AI ENGINEER · FULL-STACK DEVELOPER
+                DELHI, INDIA
               </p>
             </div>
 
@@ -133,7 +133,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                   <Terminal size={11} className="text-cyan-400 shrink-0" />
                   {steps[currentStepIndex].sub}
                 </span>
-                <span className="text-[10px] text-cyan-300/70 shrink-0 ml-2">DEPTH: 2,840M</span>
+                <span className="text-[10px] text-cyan-300/70 shrink-0 ml-2">PORTFOLIO 2026</span>
               </div>
             </div>
 
@@ -142,7 +142,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
               onClick={handleSkip}
               className="px-4 py-1.5 rounded-full text-[11px] font-mono tracking-widest text-slate-500 hover:text-cyan-300 border border-transparent hover:border-cyan-500/30 transition-all uppercase flex items-center gap-1.5 group cursor-pointer"
             >
-              <span>ENTER FACILITY</span>
+              <span>EXPLORE PORTFOLIO</span>
               <ChevronRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
             </button>
           </div>

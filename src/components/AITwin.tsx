@@ -113,10 +113,10 @@ export default function AITwin() {
 
         <div className="flex flex-col text-left">
           <span className="font-display font-extrabold text-xs tracking-wider uppercase group-hover:text-cyan-300 transition-colors">
-            AI Twin Drone
+            AI Twin
           </span>
           <span className="text-[9px] font-mono text-cyan-300 flex items-center gap-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Gemini 1.5 Active
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Gemini Powered
           </span>
         </div>
       </motion.button>
@@ -140,10 +140,10 @@ export default function AITwin() {
                   <h3 className="font-display font-bold text-sm text-white uppercase flex items-center gap-2">
                     Satyam's AI Twin
                     <span className="text-[9px] font-mono font-normal text-cyan-300 bg-cyan-950/70 px-2 py-0.5 rounded-full border border-cyan-500/40">
-                      v2.5 Gemini
+                      Gemini
                     </span>
                   </h3>
-                  <p className="text-[10px] font-mono text-slate-400">Contextual Knowledge Engine</p>
+                  <p className="text-[10px] font-mono text-slate-400">Interactive Assistant</p>
                 </div>
               </div>
 

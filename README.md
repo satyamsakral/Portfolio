@@ -11,7 +11,7 @@ LinkedIn: [linkedin.com/in/satyam-sakral-5553a4240](https://linkedin.com/in/saty
 
 ## CONCEPT: OCEAN × AI RESEARCH FACILITY
 
-A futuristic, animation-heavy creative developer portfolio styled as an exploration of an underwater artificial intelligence research facility located at **-2,840m depth** in the oceanic abyss.
+A futuristic, animation-heavy creative developer portfolio blending an immersive deep-ocean aesthetic with an artificial intelligence research laboratory.
 
 ### KEY EXPERIENCES & FEATURES
 

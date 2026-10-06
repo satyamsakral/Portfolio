@@ -275,13 +275,13 @@ export default function Projects() {
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/40 font-mono text-[10px] text-cyan-300 uppercase tracking-widest mb-3">
             <Sparkles size={12} />
-            <span>APPLIED MACHINE LEARNING & PROTOCOLS</span>
+            <span>MORE PROJECTS</span>
           </div>
           <h2 className="font-display font-black text-4xl sm:text-5xl md:text-6xl text-white tracking-tight uppercase">
-            ENGINEERING <span className="gradient-text-cyan">PORTFOLIO</span>
+            FEATURED <span className="gradient-text-cyan">PROJECTS</span>
           </h2>
           <p className="text-slate-300 font-mono text-xs sm:text-sm mt-2 max-w-2xl leading-relaxed">
-            Production computer vision edge inference and low-latency real-time video streaming systems.
+            Real-time computer vision edge classifier and low-latency P2P video streaming systems.
           </p>
         </div>
       </div>
